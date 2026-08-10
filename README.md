@@ -1,8 +1,8 @@
 # Portfolio Project
 
-A simple responsive personal portfolio website built with HTML, CSS, and JavaScript.
+This repository’s root folder is the main portfolio website for GitHub.
 
-## Structure
+## Project structure
 
 - index.html — main page content
 - css/styles.css — site styling
@@ -12,7 +12,7 @@ A simple responsive personal portfolio website built with HTML, CSS, and JavaScr
 
 ## How to use
 
-1. Open index.html in your browser.
-2. Replace placeholder content with your own name, projects, and contact details.
+1. Open index.html in your browser to preview the site.
+2. Replace the placeholder content with your own name, projects, and contact details.
 3. Add your real resume PDF to assets/resume.pdf.
-4. Push the project to GitHub and enable GitHub Pages.
+4. Push the project to GitHub and enable GitHub Pages for deployment.
