@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Name — Portfolio</title>
+<meta name="description" content="Computer science student portfolio — projects, skills, and coursework.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>
+
+<nav>
+  <div class="logo">Y.N. / portfolio</div>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">menu</button>
+  <div class="navlinks" id="navLinks">
+    <a href="#introduction">Introduction</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#subjects">Subjects</a>
+    <a href="#hobbies">Hobbies</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero" id="introduction">
+  <div class="eyebrow">CS student — university name</div>
+  <h1>Building systems that<br>reason, scale, and defend.</h1>
+  <p class="role">Computer science student. Interested in security tooling, distributed systems, and formal methods.
+    <!-- Replace with your own one-line pitch -->
+  </p>
+
+  <div class="stage">
+    <div class="portrait-wrap">
+      <div class="crosshair cross-h"></div>
+      <div class="crosshair cross-v"></div>
+      <div class="portrait">
+        <!-- Replace this div's content with: <img src="assets/images/portrait.jpg" alt="Your name"> -->
+        photo
+      </div>
+    </div>
+
+    <div class="col-label" style="top:30px; left:0;">Skills</div>
+    <div class="col-list" style="top:56px; left:0;" id="hero-skills">
+      <div>Python · Java · C</div>
+      <div>Distributed systems</div>
+      <div>ML / anomaly detection</div>
+      <div>Network security</div>
+    </div>
+
+    <div class="col-label" style="top:30px; right:0; text-align:right;">Projects</div>
+    <div class="col-list" style="top:56px; right:0; text-align:right;" id="hero-projects">
+      <div>Project one</div>
+      <div>Project two</div>
+      <div>Project three</div>
+    </div>
+
+    <div class="col-label" style="bottom:60px; left:0;">Subjects</div>
+    <div class="col-list" style="bottom:0px; left:0;" id="hero-subjects">
+      <div>Subject one</div>
+      <div>Subject two</div>
+      <div>Subject three</div>
+    </div>
+
+    <div class="tag blue" style="top:150px; left:calc(50% - 260px);">tag example</div>
+    <div class="leader" style="top:158px; left:calc(50% - 130px); width:130px; height:1px; transform:rotate(4deg);"></div>
+
+    <div class="tag rust" style="top:150px; right:calc(50% - 250px);">tag example</div>
+    <div class="leader" style="top:158px; right:calc(50% - 130px); width:130px; height:1px; transform:rotate(-4deg);"></div>
+
+    <div class="tag" style="bottom:60px; left:calc(50% - 220px);">university · year</div>
+    <div class="leader" style="bottom:78px; left:calc(50% - 120px); width:120px; height:1px; transform:rotate(-6deg);"></div>
+  </div>
+</header>
+
+<!-- ===================== PROJECTS ===================== -->
+<section class="section" id="projects">
+  <h2 class="section-title"><span class="num">02</span>Projects</h2>
+  <div class="card-grid">
+
+    <article class="card">
+      <h3>Project name</h3>
+      <p class="card-meta">Tech stack · year</p>
+      <p>One or two sentences describing what it does and why it matters.</p>
+      <div class="tags">
+        <span class="chip">Tag</span>
+        <span class="chip">Tag</span>
+      </div>
+      <a href="#" class="card-link">View project →</a>
+    </article>
+
+    <article class="card">
+      <h3>Project name</h3>
+      <p class="card-meta">Tech stack · year</p>
+      <p>One or two sentences describing what it does and why it matters.</p>
+      <div class="tags">
+        <span class="chip">Tag</span>
+        <span class="chip">Tag</span>
+      </div>
+      <a href="#" class="card-link">View project →</a>
+    </article>
+
+    <article class="card">
+      <h3>Project name</h3>
+      <p class="card-meta">Tech stack · year</p>
+      <p>One or two sentences describing what it does and why it matters.</p>
+      <div class="tags">
+        <span class="chip">Tag</span>
+        <span class="chip">Tag</span>
+      </div>
+      <a href="#" class="card-link">View project →</a>
+    </article>
+
+  </div>
+</section>
+
+<!-- ===================== SKILLS ===================== -->
+<section class="section alt" id="skills">
+  <h2 class="section-title"><span class="num">03</span>Skills</h2>
+  <div class="skills-grid">
+    <div class="skill-group">
+      <h4>Languages</h4>
+      <ul><li>Python</li><li>Java</li><li>C</li></ul>
+    </div>
+    <div class="skill-group">
+      <h4>Tools</h4>
+      <ul><li>Git</li><li>Docker</li><li>Nmap</li></ul>
+    </div>
+    <div class="skill-group">
+      <h4>Frameworks</h4>
+      <ul><li>React</li><li>FastAPI</li><li>PySpark</li></ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SUBJECTS ===================== -->
+<section class="section" id="subjects">
+  <h2 class="section-title"><span class="num">04</span>Subjects</h2>
+  <div class="subject-list">
+    <div class="subject-row">
+      <span class="subject-name">Subject name</span>
+      <span class="subject-desc">One line on what you did / learned.</span>
+    </div>
+    <div class="subject-row">
+      <span class="subject-name">Subject name</span>
+      <span class="subject-desc">One line on what you did / learned.</span>
+    </div>
+    <div class="subject-row">
+      <span class="subject-name">Subject name</span>
+      <span class="subject-desc">One line on what you did / learned.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== HOBBIES ===================== -->
+<section class="section alt" id="hobbies">
+  <h2 class="section-title"><span class="num">05</span>Hobbies</h2>
+  <p class="section-body">A short paragraph or list of things you do outside of coursework — piano, sports, whatever gives a human read on you.</p>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
+<section class="section" id="contact">
+  <h2 class="section-title"><span class="num">06</span>Contact</h2>
+  <div class="contact-grid">
+    <a href="mailto:you@example.com" class="contact-item">Email</a>
+    <a href="https://github.com/yourusername" class="contact-item" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://linkedin.com/in/yourusername" class="contact-item" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="assets/resume.pdf" class="contact-item" target="_blank" rel="noopener">Resume</a>
+  </div>
+</section>
+
+<footer>
+  <span>© <span id="year"></span> Your Name</span>
+  <span>built with plain HTML/CSS/JS</span>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
