@@ -1,183 +1,108 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Your Name — Portfolio</title>
-<meta name="description" content="Computer science student portfolio — projects, skills, and coursework.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-
-<div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>
-
-<nav>
-  <div class="logo">Y.N. / portfolio</div>
-  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">menu</button>
-  <div class="navlinks" id="navLinks">
-    <a href="#introduction">Introduction</a>
-    <a href="#projects">Projects</a>
-    <a href="#skills">Skills</a>
-    <a href="#subjects">Subjects</a>
-    <a href="#hobbies">Hobbies</a>
-    <a href="#contact">Contact</a>
-  </div>
-</nav>
-
-<!-- ===================== HERO ===================== -->
-<header class="hero" id="introduction">
-  <div class="eyebrow">CS student — university name</div>
-  <h1>Building systems that<br>reason, scale, and defend.</h1>
-  <p class="role">Computer science student. Interested in security tooling, distributed systems, and formal methods.
-    <!-- Replace with your own one-line pitch -->
-  </p>
-
-  <div class="stage">
-    <div class="portrait-wrap">
-      <div class="crosshair cross-h"></div>
-      <div class="crosshair cross-v"></div>
-      <div class="portrait">
-        <!-- Replace this div's content with: <img src="assets/images/portrait.jpg" alt="Your name"> -->
-        photo
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Majah | Front-End Portfolio</title>
+    <meta
+      name="description"
+      content="Majah's portfolio homepage featuring professional web design, project highlights, and contact details."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/global.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="brand">Majah</a>
+        <nav class="main-nav">
+          <a href="index.html" class="active">Home</a>
+          <a href="portfolio.html">Portfolio</a>
+          <a href="about.html">About</a>
+          <a href="hobbies.html">Hobbies</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <button class="mobile-toggle" aria-label="Open navigation" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
-    </div>
+    </header>
 
-    <div class="col-label" style="top:30px; left:0;">Skills</div>
-    <div class="col-list" style="top:56px; left:0;" id="hero-skills">
-      <div>Python · Java · C</div>
-      <div>Distributed systems</div>
-      <div>ML / anomaly detection</div>
-      <div>Network security</div>
-    </div>
+    <main>
+      <section class="hero-section">
+        <div class="container hero-grid">
+          <div>
+            <span class="eyebrow">Hello, I'm Majah</span>
+            <h1>Productive web experiences with strong design and clean code.</h1>
+            <p>I'm a front-end developer focused on modern portfolio sites, accessible interfaces, and polished digital products.</p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="portfolio.html">See projects</a>
+              <a class="button button-secondary" href="contact.html">Get in touch</a>
+            </div>
+          </div>
+          <div class="hero-image">
+            <img src="images/profile-photo.svg" alt="Illustrated portrait of Majah" />
+          </div>
+        </div>
+      </section>
 
-    <div class="col-label" style="top:30px; right:0; text-align:right;">Projects</div>
-    <div class="col-list" style="top:56px; right:0; text-align:right;" id="hero-projects">
-      <div>Project one</div>
-      <div>Project two</div>
-      <div>Project three</div>
-    </div>
+      <section class="feature-section">
+        <div class="container">
+          <div class="section-heading">
+            <h2>Project highlights</h2>
+            <p>Selected work from my portfolio that showcases responsive design, usable interfaces, and thoughtful information architecture.</p>
+          </div>
+          <div class="feature-cards">
+            <article class="feature-card">
+              <h3>Portfolio Website</h3>
+              <p>A professional site built for client presentations that includes dedicated project detail pages and clean navigation.</p>
+            </article>
+            <article class="feature-card">
+              <h3>Task Management UI</h3>
+              <p>A task-focused dashboard concept with clear status indicators, reusable components, and smooth mobile behavior.</p>
+            </article>
+            <article class="feature-card">
+              <h3>Design System Library</h3>
+              <p>Reusable components, polished spacing, and consistent styling for building scalable web experiences.</p>
+            </article>
+          </div>
+        </div>
+      </section>
 
-    <div class="col-label" style="bottom:60px; left:0;">Subjects</div>
-    <div class="col-list" style="bottom:0px; left:0;" id="hero-subjects">
-      <div>Subject one</div>
-      <div>Subject two</div>
-      <div>Subject three</div>
-    </div>
+      <section class="section contact-shell">
+        <div class="container split-grid">
+          <div>
+            <div class="section-heading">
+              <h2>Contact</h2>
+              <p>Ready to collaborate or hire? Reach out to discuss how I can bring your next web project to life.</p>
+            </div>
+            <div class="contact-info">
+              <a href="mailto:majahonkedlamini5@gmail.com">majahonkedlamini5@gmail.com</a>
+              <a href="https://github.com/majahonkebmd" target="_blank" rel="noreferrer noopener">GitHub</a>
+              <a href="https://www.linkedin.com/in/dlamini-majahonke-banele-180a1a245/" target="_blank" rel="noreferrer noopener">LinkedIn</a>
+            </div>
+          </div>
+          <div class="panel-card">
+            <h3>Let's work together</h3>
+            <p>Whether you need a portfolio refresh or a complete front-end build, I deliver thoughtful, polished experiences with a developer-first approach.</p>
+          </div>
+        </div>
+      </section>
+    </main>
 
-    <div class="tag blue" style="top:150px; left:calc(50% - 260px);">tag example</div>
-    <div class="leader" style="top:158px; left:calc(50% - 130px); width:130px; height:1px; transform:rotate(4deg);"></div>
-
-    <div class="tag rust" style="top:150px; right:calc(50% - 250px);">tag example</div>
-    <div class="leader" style="top:158px; right:calc(50% - 130px); width:130px; height:1px; transform:rotate(-4deg);"></div>
-
-    <div class="tag" style="bottom:60px; left:calc(50% - 220px);">university · year</div>
-    <div class="leader" style="bottom:78px; left:calc(50% - 120px); width:120px; height:1px; transform:rotate(-6deg);"></div>
-  </div>
-</header>
-
-<!-- ===================== PROJECTS ===================== -->
-<section class="section" id="projects">
-  <h2 class="section-title"><span class="num">02</span>Projects</h2>
-  <div class="card-grid">
-
-    <article class="card">
-      <h3>Project name</h3>
-      <p class="card-meta">Tech stack · year</p>
-      <p>One or two sentences describing what it does and why it matters.</p>
-      <div class="tags">
-        <span class="chip">Tag</span>
-        <span class="chip">Tag</span>
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© <span id="year"></span> Majah. All rights reserved.</p>
       </div>
-      <a href="#" class="card-link">View project →</a>
-    </article>
+    </footer>
 
-    <article class="card">
-      <h3>Project name</h3>
-      <p class="card-meta">Tech stack · year</p>
-      <p>One or two sentences describing what it does and why it matters.</p>
-      <div class="tags">
-        <span class="chip">Tag</span>
-        <span class="chip">Tag</span>
-      </div>
-      <a href="#" class="card-link">View project →</a>
-    </article>
-
-    <article class="card">
-      <h3>Project name</h3>
-      <p class="card-meta">Tech stack · year</p>
-      <p>One or two sentences describing what it does and why it matters.</p>
-      <div class="tags">
-        <span class="chip">Tag</span>
-        <span class="chip">Tag</span>
-      </div>
-      <a href="#" class="card-link">View project →</a>
-    </article>
-
-  </div>
-</section>
-
-<!-- ===================== SKILLS ===================== -->
-<section class="section alt" id="skills">
-  <h2 class="section-title"><span class="num">03</span>Skills</h2>
-  <div class="skills-grid">
-    <div class="skill-group">
-      <h4>Languages</h4>
-      <ul><li>Python</li><li>Java</li><li>C</li></ul>
-    </div>
-    <div class="skill-group">
-      <h4>Tools</h4>
-      <ul><li>Git</li><li>Docker</li><li>Nmap</li></ul>
-    </div>
-    <div class="skill-group">
-      <h4>Frameworks</h4>
-      <ul><li>React</li><li>FastAPI</li><li>PySpark</li></ul>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== SUBJECTS ===================== -->
-<section class="section" id="subjects">
-  <h2 class="section-title"><span class="num">04</span>Subjects</h2>
-  <div class="subject-list">
-    <div class="subject-row">
-      <span class="subject-name">Subject name</span>
-      <span class="subject-desc">One line on what you did / learned.</span>
-    </div>
-    <div class="subject-row">
-      <span class="subject-name">Subject name</span>
-      <span class="subject-desc">One line on what you did / learned.</span>
-    </div>
-    <div class="subject-row">
-      <span class="subject-name">Subject name</span>
-      <span class="subject-desc">One line on what you did / learned.</span>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== HOBBIES ===================== -->
-<section class="section alt" id="hobbies">
-  <h2 class="section-title"><span class="num">05</span>Hobbies</h2>
-  <p class="section-body">A short paragraph or list of things you do outside of coursework — piano, sports, whatever gives a human read on you.</p>
-</section>
-
-<!-- ===================== CONTACT ===================== -->
-<section class="section" id="contact">
-  <h2 class="section-title"><span class="num">06</span>Contact</h2>
-  <div class="contact-grid">
-    <a href="mailto:you@example.com" class="contact-item">Email</a>
-    <a href="https://github.com/yourusername" class="contact-item" target="_blank" rel="noopener">GitHub</a>
-    <a href="https://linkedin.com/in/yourusername" class="contact-item" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="assets/resume.pdf" class="contact-item" target="_blank" rel="noopener">Resume</a>
-  </div>
-</section>
-
-<footer>
-  <span>© <span id="year"></span> Your Name</span>
-  <span>built with plain HTML/CSS/JS</span>
-</footer>
-
-<script src="js/script.js"></script>
-</body>
+    <script src="scripts/main.js"></script>
+  </body>
 </html>

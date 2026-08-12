@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio | Majah</title>
+    <meta
+      name="description"
+      content="Portfolio showcase with dedicated project detail pages."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/global.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="brand">Majah</a>
+        <nav class="main-nav">
+          <a href="index.html">Home</a>
+          <a href="portfolio.html" class="active">Portfolio</a>
+          <a href="about.html">About</a>
+          <a href="hobbies.html">Hobbies</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <button class="mobile-toggle" aria-label="Open navigation" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <section class="section">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow">Portfolio</span>
+            <h1>Featured projects</h1>
+            <p>Each project includes a brief overview, outcomes, and the technologies used.</p>
+          </div>
+
+          <div class="projects-grid">
+            <article class="project-card">
+              <div>
+                <span class="project-tag">Web Design</span>
+                <h3>Responsive Portfolio Website</h3>
+                <p>A clean, modern portfolio web experience built for readability and mobile performance.</p>
+              </div>
+              <a class="button button-outline" href="project-one.html">View details</a>
+            </article>
+
+            <article class="project-card">
+              <div>
+                <span class="project-tag">Web App</span>
+                <h3>Task Management Interface</h3>
+                <p>A polished task app prototype that focuses on quick task entry and clear progress tracking.</p>
+              </div>
+              <a class="button button-outline" href="project-two.html">View details</a>
+            </article>
+
+            <article class="project-card">
+              <div>
+                <span class="project-tag">Portfolio</span>
+                <h3>Project Showcase Concept</h3>
+                <p>Structured project pages with a balanced, professional layout and strong visual hierarchy.</p>
+              </div>
+              <a class="button button-outline" href="project-three.html">View details</a>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© <span id="year"></span> Majah. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+  </body>
+</html>
