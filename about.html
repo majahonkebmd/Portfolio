@@ -6,8 +6,9 @@
     <title>About | Majah Portfolio</title>
     <meta
       name="description"
-      content="Learn more about Majah, skills, background, and professional goals."
+      content="Learn more about Majah, skills, education, background, and professional goals."
     />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -15,11 +16,236 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles/global.css" />
+
+    <style>
+      /* =========================================================
+         ABOUT PAGE
+         Skills + Education
+         ========================================================= */
+
+      .about-section {
+        padding-top: 48px;
+      }
+
+      .skills-section,
+      .education-section {
+        padding: 56px 0 72px;
+      }
+
+      .section-heading {
+        margin-bottom: 34px;
+      }
+
+      .section-heading h2 {
+        margin: 0 0 10px;
+        color: #0b4ea2;
+        font-size: clamp(2rem, 4vw, 2.7rem);
+      }
+
+      .section-heading p {
+        max-width: 720px;
+        margin: 0;
+        color: #5f6875;
+      }
+
+      /* -------------------------
+         SKILLS
+         ------------------------- */
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+        align-items: stretch;
+      }
+
+      .skill-card {
+        min-height: 190px;
+        padding: 22px 20px 20px;
+        border: 1px solid #b8dbe8;
+        border-radius: 12px;
+        background: #fff;
+        box-shadow: 0 5px 16px rgba(30, 70, 100, 0.08);
+        text-align: center;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .skill-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 24px rgba(30, 70, 100, 0.13);
+      }
+
+      .skill-card h3 {
+        margin: 0 0 16px;
+        color: #0751a4;
+        font-size: 1rem;
+        font-weight: 600;
+      }
+
+      .skill-icons {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 18px 22px;
+      }
+
+      .skill-item {
+        min-width: 70px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 7px;
+      }
+
+      .skill-icon {
+        width: 52px;
+        height: 52px;
+        display: block;
+      }
+
+      .skill-name {
+        font-size: 0.88rem;
+        color: #222;
+        line-height: 1.2;
+      }
+
+      /* -------------------------
+         EDUCATION
+         ------------------------- */
+
+      .education-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+      }
+
+      .education-card {
+        position: relative;
+        min-height: 220px;
+        padding: 26px;
+        border-radius: 10px;
+        border: 1px solid #e0e3e6;
+        background: #f8f9fa;
+        box-shadow: 0 5px 16px rgba(30, 40, 50, 0.08);
+        overflow: hidden;
+      }
+
+      .education-card::before {
+        content: "";
+        position: absolute;
+        inset: 0 auto 0 0;
+        width: 4px;
+        background: #0b4ea2;
+      }
+
+      .education-top {
+        display: flex;
+        gap: 18px;
+        align-items: flex-start;
+      }
+
+      .education-logo {
+        width: 76px;
+        height: 76px;
+        flex: 0 0 76px;
+        display: grid;
+        place-items: center;
+        border-radius: 9px;
+        border: 1px solid #d8dde2;
+        background: #fff;
+        overflow: hidden;
+      }
+
+      .education-logo svg {
+        width: 58px;
+        height: 58px;
+      }
+
+      .education-date {
+        margin: 0 0 5px;
+        color: #173e78;
+        font-size: 1.05rem;
+        font-weight: 700;
+      }
+
+      .education-card h3 {
+        margin: 0 0 7px;
+        color: #0751a4;
+        font-size: 1.12rem;
+      }
+
+      .education-degree {
+        margin: 0;
+        color: #222;
+        line-height: 1.45;
+      }
+
+      .education-details {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        margin-top: 22px;
+        padding-top: 17px;
+        border-top: 1px solid #dfe3e7;
+      }
+
+      .education-detail strong {
+        display: block;
+        margin-bottom: 5px;
+        color: #0751a4;
+        font-size: 0.82rem;
+      }
+
+      .education-detail p {
+        margin: 0;
+        color: #59636f;
+        font-size: 0.88rem;
+        line-height: 1.45;
+      }
+
+      /* -------------------------
+         RESPONSIVE
+         ------------------------- */
+
+      @media (max-width: 1050px) {
+        .skills-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 760px) {
+        .skills-grid,
+        .education-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .education-card {
+          min-height: auto;
+        }
+      }
+
+      @media (max-width: 520px) {
+        .education-top {
+          flex-direction: column;
+        }
+
+        .education-details {
+          grid-template-columns: 1fr;
+        }
+
+        .skill-card {
+          min-height: auto;
+        }
+      }
+    </style>
   </head>
+
   <body>
     <header class="site-header">
       <div class="container header-inner">
         <a href="index.html" class="brand">Majah</a>
+
         <nav class="main-nav">
           <a href="index.html">Home</a>
           <a href="portfolio.html">Portfolio</a>
@@ -27,7 +253,12 @@
           <a href="hobbies.html">Hobbies</a>
           <a href="contact.html">Contact</a>
         </nav>
-        <button class="mobile-toggle" aria-label="Open navigation" aria-expanded="false">
+
+        <button
+          class="mobile-toggle"
+          aria-label="Open navigation"
+          aria-expanded="false"
+        >
           <span></span>
           <span></span>
           <span></span>
@@ -36,42 +267,703 @@
     </header>
 
     <main class="page-shell">
-      <section class="section intro-section">
+
+      <!-- =======================================================
+           ABOUT INTRO
+           ======================================================= -->
+      <section class="section intro-section about-section">
         <div class="container split-grid">
           <div>
             <span class="eyebrow">About me</span>
-            <h1>Crafting thoughtful products with a clean web experience.</h1>
+
+            <h1>
+              Computer Science, cybersecurity, AI, and software development.
+            </h1>
+
             <p>
-              I’m a computer science student building modern web interfaces with a focus on
-              usability, accessibility, and polished design. My work brings clarity to ideas and
-              makes it easy for people to connect with the content.
+              I’m a computer science student building software and exploring
+              the intersection of cybersecurity, networking, artificial
+              intelligence, and practical application development.
             </p>
+
             <div class="callouts">
               <div class="callout-card">
                 <strong>Skills</strong>
-                <p>HTML • CSS • JavaScript • React • UX design</p>
+                <p>
+                  Programming • Cybersecurity • Networking • AI/ML • Web
+                  Development
+                </p>
               </div>
+
               <div class="callout-card">
                 <strong>Focus</strong>
-                <p>Responsive experiences, clean layouts, and fast delivery.</p>
+                <p>
+                  <!-- EDIT THIS -->
+                  Add your current professional or academic focus here.
+                </p>
               </div>
             </div>
           </div>
+
           <div class="panel-card">
             <h2>Background</h2>
+
             <p>
-              I enjoy turning project ideas into visually calm, professional websites. I design
-              with attention to hierarchy, spacing, and readable typography.
+              <!-- EDIT THIS -->
+              Add your background story here. You can describe your journey
+              into computer science, the areas you enjoy, and the kind of
+              problems you want to solve.
             </p>
+
             <h2>What I bring</h2>
+
             <ul>
-              <li>Clear project structure</li>
-              <li>Responsive-first development</li>
-              <li>Simple, polished interfaces</li>
+              <li>Software development and problem solving</li>
+              <li>Cybersecurity and networking foundations</li>
+              <li>AI/ML and research-oriented project work</li>
             </ul>
           </div>
         </div>
       </section>
+
+      <!-- =======================================================
+           SKILLS
+           ======================================================= -->
+      <section class="section skills-section" id="skills">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow">Technical abilities</span>
+            <h2>Skills</h2>
+            <p>
+              A collection of the technologies, concepts, and tools I have
+              studied or applied through coursework, assignments, research,
+              and personal projects.
+            </p>
+          </div>
+
+          <div class="skills-grid">
+
+            <!-- Programming -->
+            <article class="skill-card">
+              <h3>Programming</h3>
+
+              <div class="skill-icons">
+                <div class="skill-item">
+                  <!-- Placeholder SVG: C/C++ -->
+                  <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
+                    <rect x="2" y="2" width="60" height="60" rx="12" fill="#dbeafe"/>
+                    <text x="32" y="38" text-anchor="middle" font-size="18" font-weight="700" fill="#0751a4">C++</text>
+                  </svg>
+                  <span class="skill-name">C / C++</span>
+                </div>
+
+                <div class="skill-item">
+                  <!-- Placeholder SVG: Python -->
+                  <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
+                    <rect x="2" y="2" width="60" height="60" rx="12" fill="#fff3bf"/>
+                    <text x="32" y="38" text-anchor="middle" font-size="17" font-weight="700" fill="#0751a4">Py</text>
+                  </svg>
+                  <span class="skill-name">Python</span>
+                </div>
+
+                <div class="skill-item">
+                  <!-- Placeholder SVG: OOP -->
+                  <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
+                    <rect x="2" y="2" width="60" height="60" rx="12" fill="#e8f5e9"/>
+                    <text x="32" y="38" text-anchor="middle" font-size="14" font-weight="700" fill="#0751a4">OOP</text>
+                  </svg>
+                  <span class="skill-name">OOP</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Web Development -->
+            <article class="skill-card">
+              <h3>Web Development</h3>
+
+              <div class="skill-icons">
+                <div class="skill-item">
+                  <!-- Placeholder SVG: HTML -->
+                  <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
+                    <rect x="5" y="5" width="54" height="54" rx="8" fill="#ffe4d6"/>
+                    <text x="32" y="39" text-anchor="middle" font-size="16" font-weight="700" fill="#e34c26">HTML</text>
+                  </svg>
+                  <span class="skill-name">HTML</span>
+                </div>
+
+                <div class="skill-item">
+                  <!-- Placeholder SVG: CSS -->
+                  <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
+                    <rect x="5" y="5" width="54" height="54" rx="8" fill="#e0edff"/>
+                    <text x="32" y="39" text-anchor="middle" font-size="16" font-weight="700" fill="#264de4">CSS</text>
+                  </svg>
+                  <span class="skill-name">CSS</span>
+                </div>
+
+                <div class="skill-item">
+                  <!-- Placeholder SVG: JavaScript -->
+                  <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
+                    <rect x="5" y="5" width="54" height="54" rx="8" fill="#fff5b5"/>
+                    <text x="32" y="39" text-anchor="middle" font-size="12" font-weight="700" fill="#806b00">JS</text>
+                  </svg>
+                  <span class="skill-name">JavaScript</span>
+                </div>
+
+                <div class="skill-item">
+                  <!-- Placeholder SVG: FastAPI -->
+                  <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
+                    <rect x="5" y="5" width="54" height="54" rx="8" fill="#e2f7f3"/>
+                    <text x="32" y="38" text-anchor="middle" font-size="11" font-weight="700" fill="#0751a4">API</text>
+                  </svg>
+                  <span class="skill-name">FastAPI</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Cybersecurity -->
+            <article class="skill-card">
+              <h3>Cybersecurity</h3>
+
+              <div class="skill-icons">
+                <div class="skill-item">
+                  <!-- Placeholder SVG: Recon -->
+                  <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
+                    <circle cx="32" cy="32" r="27" fill="#e8f0fe"/>
+                    <circle cx="29" cy="29" r="11" fill="none" stroke="#0751a4" stroke-width="5"/>
+                    <path d="M38 38 L51 51" stroke="#0751a4" stroke-width="5" stroke-linecap="round"/>
+                  </svg>
+                  <span class="skill-name">Recon</span>
+                </div>
+
+                <div class="skill-item">
+                  <!-- Placeholder SVG: Burp -->
+                  <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
+                    <rect x="4" y="4" width="56" height="56" rx="12" fill="#fff0e8"/>
+                    <text x="32" y="38" text-anchor="middle" font-size="13" font-weight="700" fill="#0751a4">BURP</text>
+                  </svg>
+                  <span class="skill-name">Burp Suite</span>
+                </div>
+
+                <div class="skill-item">
+                  <!-- Placeholder SVG: Nmap -->
+                  <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
+                    <rect x="4" y="4" width="56" height="56" rx="12" fill="#edf2f7"/>
+                    <text x="32" y="38" text-anchor="middle" font-size="14" font-weight="700" fill="#0751a4">NMAP</text>
+                  </svg>
+                  <span class="skill-name">Nmap</span>
+                </div>
+
+                <div class="skill-item">
+                  <!-- Placeholder SVG: Wireshark -->
+                  <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
+                    <rect x="4" y="4" width="56" height="56" rx="12" fill="#e8f5e9"/>
+                    <path d="M13 43 C21 17, 30 17, 39 35 S49 43, 53 20" fill="none" stroke="#0751a4" stroke-width="5"/>
+                  </svg>
+                  <span class="skill-name">Wireshark</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- AI / ML -->
+            <article class="skill-card">
+              <h3>AI &amp; Machine Learning</h3>
+
+              <div class="skill-icons">
+                <div class="skill-item">
+                  <!-- Placeholder SVG: ML -->
+                  <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
+                    <circle cx="32" cy="32" r="27" fill="#eee7ff"/>
+                    <circle cx="22" cy="27" r="4" fill="#0751a4"/>
+                    <circle cx="42" cy="27" r="4" fill="#0751a4"/>
+                    <circle cx="32" cy="43" r="4" fill="#0751a4"/>
+                    <path d="M25 28 L29 39 M39 28 L35 39 M26 27 L38 27" stroke="#0751a4" stroke-width="3"/>
+                  </svg>
+                  <span class="skill-name">ML</span>
+                </div>
+
+                <div class="skill-item">
+                  <!-- Placeholder SVG: Transformers -->
+                  <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
+                    <rect x="5" y="5" width="54" height="54" rx="10" fill="#f1eaff"/>
+                    <text x="32" y="37" text-anchor="middle" font-size="12" font-weight="700" fill="#0751a4">TRANS</text>
+                  </svg>
+                  <span class="skill-name">Transformers</span>
+                </div>
+
+                <div class="skill-item">
+                  <!-- Placeholder SVG: scikit-learn -->
+                  <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
+                    <rect x="5" y="5" width="54" height="54" rx="10" fill="#fff2df"/>
+                    <text x="32" y="37" text-anchor="middle" font-size="13" font-weight="700" fill="#0751a4">SK</text>
+                  </svg>
+                  <span class="skill-name">scikit-learn</span>
+                </div>
+
+                <div class="skill-item">
+                  <!-- Placeholder SVG: Anomaly Detection -->
+                  <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
+                    <rect x="5" y="5" width="54" height="54" rx="10" fill="#eaf4ff"/>
+                    <path d="M13 43 L23 34 L31 39 L42 22 L51 29" fill="none" stroke="#0751a4" stroke-width="4"/>
+                    <circle cx="42" cy="22" r="5" fill="#0751a4"/>
+                  </svg>
+                  <span class="skill-name">Anomaly Detection</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Networking -->
+            <article class="skill-card">
+              <h3>Networking</h3>
+
+              <div class="skill-icons">
+                <div class="skill-item">
+                  <!-- Placeholder SVG: TCP/IP -->
+                  <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
+                    <rect x="5" y="5" width="54" height="54" rx="10" fill="#e8f0fe"/>
+                    <text x="32" y="38" text-anchor="middle" font-size="14" font-weight="700" fill="#0751a4">TCP/IP</text>
+                  </svg>
+                  <span class="skill-name">TCP/IP</span>
+                </div>
+
+                <div class="skill-item">
+                  <!-- Placeholder SVG: DNS -->
+                  <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
+                    <circle cx="32" cy="32" r="27" fill="#eef6ff"/>
+                    <circle cx="32" cy="32" r="12" fill="none" stroke="#0751a4" stroke-width="4"/>
+                    <path d="M20 32 H44 M32 20 V44" stroke="#0751a4" stroke-width="3"/>
+                  </svg>
+                  <span class="skill-name">DNS / DHCP</span>
+                </div>
+
+                <div class="skill-item">
+                  <!-- Placeholder SVG: HTTP -->
+                  <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
+                    <rect x="5" y="5" width="54" height="54" rx="10" fill="#e9f7f1"/>
+                    <text x="32" y="38" text-anchor="middle" font-size="14" font-weight="700" fill="#0751a4">HTTP</text>
+                  </svg>
+                  <span class="skill-name">HTTP</span>
+                </div>
+
+                <div class="skill-item">
+                  <!-- Placeholder SVG: Traffic -->
+                  <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
+                    <rect x="5" y="5" width="54" height="54" rx="10" fill="#f1f5f9"/>
+                    <path d="M13 39 H51 M20 28 H44 M27 17 H37" stroke="#0751a4" stroke-width="5" stroke-linecap="round"/>
+                  </svg>
+                  <span class="skill-name">Traffic Analysis</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Data & Big Data -->
+            <article class="skill-card">
+              <h3>Data &amp; Big Data</h3>
+
+              <div class="skill-icons">
+                <div class="skill-item">
+                  <!-- Placeholder SVG: NumPy -->
+                  <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
+                    <rect x="5" y="5" width="54" height="54" rx="10" fill="#e8f0fe"/>
+                    <text x="32" y="38" text-anchor="middle" font-size="13" font-weight="700" fill="#0751a4">NP</text>
+                  </svg>
+                  <span class="skill-name">NumPy</span>
+                </div>
+
+                <div class="skill-item">
+                  <!-- Placeholder SVG: Hadoop -->
+                  <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
+                    <rect x="5" y="5" width="54" height="54" rx="10" fill="#fff4d8"/>
+                    <text x="32" y="38" text-anchor="middle" font-size="12" font-weight="700" fill="#0751a4">HADOOP</text>
+                  </svg>
+                  <span class="skill-name">Hadoop</span>
+                </div>
+
+                <div class="skill-item">
+                  <!-- Placeholder SVG: Spark -->
+                  <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
+                    <rect x="5" y="5" width="54" height="54" rx="10" fill="#ffe8e8"/>
+                    <path d="M20 18 L42 31 L27 31 L44 46" fill="none" stroke="#0751a4" stroke-width="5" stroke-linejoin="round"/>
+                  </svg>
+                  <span class="skill-name">Spark</span>
+                </div>
+
+                <div class="skill-item">
+                  <!-- Placeholder SVG: Data -->
+                  <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
+                    <ellipse cx="32" cy="18" rx="19" ry="8" fill="#dbeafe" stroke="#0751a4" stroke-width="3"/>
+                    <path d="M13 18 V32 C13 36 21 40 32 40 S51 36 51 32 V18" fill="none" stroke="#0751a4" stroke-width="3"/>
+                    <path d="M13 32 V46 C13 50 21 54 32 54 S51 50 51 46 V32" fill="none" stroke="#0751a4" stroke-width="3"/>
+                  </svg>
+                  <span class="skill-name">Data Processing</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Software Engineering -->
+            <article class="skill-card">
+              <h3>Software Engineering</h3>
+
+              <div class="skill-icons">
+                <div class="skill-item">
+                  <!-- Placeholder SVG: REST -->
+                  <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
+                    <rect x="5" y="5" width="54" height="54" rx="10" fill="#e9f7f1"/>
+                    <text x="32" y="38" text-anchor="middle" font-size="13" font-weight="700" fill="#0751a4">REST</text>
+                  </svg>
+                  <span class="skill-name">REST APIs</span>
+                </div>
+
+                <div class="skill-item">
+                  <!-- Placeholder SVG: Testing -->
+                  <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
+                    <rect x="5" y="5" width="54" height="54" rx="10" fill="#edf2f7"/>
+                    <path d="M18 33 L27 42 L47 21" fill="none" stroke="#0751a4" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span class="skill-name">Testing</span>
+                </div>
+
+                <div class="skill-item">
+                  <!-- Placeholder SVG: Architecture -->
+                  <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
+                    <rect x="9" y="9" width="18" height="18" rx="3" fill="#dbeafe"/>
+                    <rect x="37" y="9" width="18" height="18" rx="3" fill="#dbeafe"/>
+                    <rect x="23" y="37" width="18" height="18" rx="3" fill="#dbeafe"/>
+                    <path d="M27 18 H37 M46 27 L37 37 M18 27 L27 37" stroke="#0751a4" stroke-width="3"/>
+                  </svg>
+                  <span class="skill-name">Architecture</span>
+                </div>
+
+                <div class="skill-item">
+                  <!-- Placeholder SVG: Debugging -->
+                  <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
+                    <circle cx="30" cy="31" r="15" fill="#e8f0fe" stroke="#0751a4" stroke-width="3"/>
+                    <path d="M41 42 L53 54" stroke="#0751a4" stroke-width="5" stroke-linecap="round"/>
+                    <path d="M21 31 H39" stroke="#0751a4" stroke-width="3"/>
+                  </svg>
+                  <span class="skill-name">Debugging</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Linux & Systems -->
+            <article class="skill-card">
+              <h3>Linux &amp; Systems</h3>
+
+              <div class="skill-icons">
+                <div class="skill-item">
+                  <!-- Placeholder SVG: Linux -->
+                  <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
+                    <circle cx="32" cy="32" r="27" fill="#f1f5f9"/>
+                    <text x="32" y="38" text-anchor="middle" font-size="15" font-weight="700" fill="#0751a4">LINUX</text>
+                  </svg>
+                  <span class="skill-name">Linux</span>
+                </div>
+
+                <div class="skill-item">
+                  <!-- Placeholder SVG: Kali -->
+                  <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
+                    <rect x="5" y="5" width="54" height="54" rx="10" fill="#e6f4ff"/>
+                    <text x="32" y="38" text-anchor="middle" font-size="13" font-weight="700" fill="#0751a4">KALI</text>
+                  </svg>
+                  <span class="skill-name">Kali Linux</span>
+                </div>
+
+                <div class="skill-item">
+                  <!-- Placeholder SVG: CLI -->
+                  <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
+                    <rect x="5" y="9" width="54" height="46" rx="7" fill="#172033"/>
+                    <path d="M15 23 L24 32 L15 41 M29 41 H47" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span class="skill-name">CLI</span>
+                </div>
+
+                <div class="skill-item">
+                  <!-- Placeholder SVG: Virtualization -->
+                  <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
+                    <rect x="10" y="12" width="44" height="28" rx="4" fill="#e8f0fe" stroke="#0751a4" stroke-width="3"/>
+                    <path d="M24 52 H40 M32 40 V52" stroke="#0751a4" stroke-width="3"/>
+                  </svg>
+                  <span class="skill-name">VMs</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Tools & Version Control -->
+            <article class="skill-card">
+              <h3>Tools &amp; Version Control</h3>
+
+              <div class="skill-icons">
+                <div class="skill-item">
+                  <!-- Placeholder SVG: Git -->
+                  <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
+                    <rect x="5" y="5" width="54" height="54" rx="10" fill="#fff0ea"/>
+                    <text x="32" y="38" text-anchor="middle" font-size="17" font-weight="700" fill="#d94a25">Git</text>
+                  </svg>
+                  <span class="skill-name">Git</span>
+                </div>
+
+                <div class="skill-item">
+                  <!-- Placeholder SVG: GitHub -->
+                  <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
+                    <circle cx="32" cy="32" r="27" fill="#eef1f5"/>
+                    <text x="32" y="38" text-anchor="middle" font-size="12" font-weight="700" fill="#0751a4">GITHUB</text>
+                  </svg>
+                  <span class="skill-name">GitHub</span>
+                </div>
+
+                <div class="skill-item">
+                  <!-- Placeholder SVG: VS Code -->
+                  <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
+                    <rect x="7" y="7" width="50" height="50" rx="10" fill="#e4f3ff"/>
+                    <text x="32" y="38" text-anchor="middle" font-size="13" font-weight="700" fill="#0751a4">VS</text>
+                  </svg>
+                  <span class="skill-name">VS Code</span>
+                </div>
+
+                <div class="skill-item">
+                  <!-- Placeholder SVG: Docker -->
+                  <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
+                    <rect x="5" y="5" width="54" height="54" rx="10" fill="#e4f3ff"/>
+                    <text x="32" y="38" text-anchor="middle" font-size="12" font-weight="700" fill="#0751a4">DOCK</text>
+                  </svg>
+                  <span class="skill-name">Docker</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Specialized / Research -->
+            <article class="skill-card">
+              <h3>Specialized &amp; Research</h3>
+
+              <div class="skill-icons">
+                <div class="skill-item">
+                  <!-- Placeholder SVG: MIDI -->
+                  <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
+                    <rect x="7" y="8" width="50" height="48" rx="8" fill="#f2ecff"/>
+                    <path d="M16 18 V48 M27 18 V48 M38 18 V48 M49 18 V48 M12 27 H52 M12 38 H52" stroke="#0751a4" stroke-width="3"/>
+                  </svg>
+                  <span class="skill-name">MIDI</span>
+                </div>
+
+                <div class="skill-item">
+                  <!-- Placeholder SVG: DTW -->
+                  <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
+                    <rect x="5" y="5" width="54" height="54" rx="10" fill="#eaf4ff"/>
+                    <path d="M14 49 L49 14" stroke="#0751a4" stroke-width="4"/>
+                    <path d="M14 18 H50 M14 32 H50 M14 46 H50" stroke="#9bbfe9" stroke-width="2"/>
+                  </svg>
+                  <span class="skill-name">DTW</span>
+                </div>
+
+                <div class="skill-item">
+                  <!-- Placeholder SVG: Research -->
+                  <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
+                    <rect x="12" y="8" width="38" height="48" rx="5" fill="#f5f7fa" stroke="#0751a4" stroke-width="3"/>
+                    <path d="M20 20 H42 M20 30 H42 M20 40 H35" stroke="#0751a4" stroke-width="3" stroke-linecap="round"/>
+                  </svg>
+                  <span class="skill-name">Research</span>
+                </div>
+
+                <div class="skill-item">
+                  <!-- Placeholder SVG: Algorithms -->
+                  <svg class="skill-icon" viewBox="0 0 64 64" aria-hidden="true">
+                    <circle cx="18" cy="20" r="6" fill="#dbeafe"/>
+                    <circle cx="46" cy="20" r="6" fill="#dbeafe"/>
+                    <circle cx="32" cy="45" r="6" fill="#dbeafe"/>
+                    <path d="M24 20 H40 M22 25 L28 40 M42 25 L36 40" stroke="#0751a4" stroke-width="3"/>
+                  </svg>
+                  <span class="skill-name">Algorithms</span>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================
+           EDUCATION
+           ======================================================= -->
+      <section class="section education-section" id="education">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow">Academic journey</span>
+            <h2>Education</h2>
+            <p>
+              My academic background across Taiwan and Eswatini.
+              <!-- EDIT THIS -->
+              You can change the descriptions, dates, qualifications, focus,
+              and background for each institution below.
+            </p>
+          </div>
+
+          <div class="education-grid">
+
+            <!-- 1. NDHU -->
+            <article class="education-card">
+              <div class="education-top">
+                <div class="education-logo">
+                  <!-- Placeholder SVG — replace with NDHU logo -->
+                  <svg viewBox="0 0 80 80" aria-hidden="true">
+                    <circle cx="40" cy="40" r="35" fill="#edf4ff" stroke="#0751a4" stroke-width="3"/>
+                    <text x="40" y="36" text-anchor="middle" font-size="12" font-weight="700" fill="#0751a4">NDHU</text>
+                    <text x="40" y="50" text-anchor="middle" font-size="8" fill="#0751a4">TAIWAN</text>
+                  </svg>
+                </div>
+
+                <div>
+                  <!-- EDIT THIS -->
+                  <p class="education-date">2020 - 2024</p>
+                  <h3>National Dong Hwa University</h3>
+                  <p class="education-degree">
+                    Bachelor Degree in Computer Science and Information Engineering
+                  </p>
+                </div>
+              </div>
+
+              <div class="education-details">
+                <div class="education-detail">
+                  <strong>Focus</strong>
+                  <p>
+
+                    Computer Science, Information Engineering, cybersecurity,
+                    AI/ML, networking, and software development.
+                  </p>
+                </div>
+
+                <div class="education-detail">
+                  <strong>Background</strong>
+                  <p>
+                    At NDHU, I focus on areas such as Computer Networks, Cybersecurity, Machine Learning, Generative AI, Data Structures and Algorithms, Discrete Mathematics, Linear Algebra, Probability, and Programming in C/C++, alongside practical projects in software development and AI. Beyond academics, I play football for the university team, explore Hualien, work part-time on weekends, and participate in campus volunteering activities such as the Tussel Turning Ceremony and other university events.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <!-- 2. UNESWA -->
+            <article class="education-card">
+              <div class="education-top">
+                <div class="education-logo">
+                  <!-- Placeholder SVG — replace with UNESWA logo -->
+                  <svg viewBox="0 0 80 80" aria-hidden="true">
+                    <circle cx="40" cy="40" r="35" fill="#f4f0ff" stroke="#0751a4" stroke-width="3"/>
+                    <text x="40" y="36" text-anchor="middle" font-size="11" font-weight="700" fill="#0751a4">UNESWA</text>
+                    <text x="40" y="50" text-anchor="middle" font-size="8" fill="#0751a4">KWALUSENI</text>
+                  </svg>
+                </div>
+
+                <div>
+                  <p class="education-date">2023 Feb - 2023 Aug</p>
+                  <h3>University of Eswatini — Kwaluseni</h3>
+                  <p class="education-degree">
+                    Bachelor of Science in Computer Science Education (B.Sc. Comp. Ed.)
+                  </p>
+                </div>
+              </div>
+
+              <div class="education-details">
+                <div class="education-detail">
+                  <strong>Focus</strong>
+                  <p>
+                    I was here for a semester, I focused on Introduction to Programming in python and Introduction to Computer Science Education, which included topics such as programming. I also had the previlage to learn about classroom management and Child development Psychology 
+                    in some of the courses in this program.
+                  </p>
+                </div>
+
+                <div class="education-detail">
+                  <strong>Background</strong>
+                  <p>
+                    I got a schoolarship from government for this program
+                    Made a lot of friends here and had fun going around local places and the university.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <!-- 3. Timphisini High School -->
+            <article class="education-card">
+              <div class="education-top">
+                <div class="education-logo">
+                  <!-- Placeholder SVG — replace with school logo -->
+                  <svg viewBox="0 0 80 80" aria-hidden="true">
+                    <rect x="9" y="9" width="62" height="62" rx="12" fill="#f5f7fa" stroke="#0751a4" stroke-width="3"/>
+                    <text x="40" y="36" text-anchor="middle" font-size="10" font-weight="700" fill="#0751a4">TIMPHISINI</text>
+                    <text x="40" y="49" text-anchor="middle" font-size="8" fill="#0751a4">HIGH SCHOOL</text>
+                  </svg>
+                </div>
+
+                <div>
+                  <p class="education-date">2017 - 2021</p>
+                  <h3>Timphisini Central High School</h3>
+                  <p class="education-degree">
+                    High School / Senior Secondary Education
+                  </p>
+                </div>
+              </div>
+
+              <div class="education-details">
+                <div class="education-detail">
+                  <strong>Focus</strong>
+                  <p>
+                    
+                    Focused on Science, Mathematics and Information Technology subjects, 
+                    which included ICT, Physical Science( Chemistry and Physics), Biology Add Maths
+                  </p>
+                </div>
+
+                <div class="education-detail">
+                  <strong>Background</strong>
+                  <p>
+                    Achieved a strong academic record, and actively participated in extracurricular activities 
+                    including  Karate, Chess, Debates and other activities.
+                    I also had the privilage of being the school's Deputy Head Boy and Head Boy for the 2020 and 2021 academic year
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <!-- 4. Ndlalambi Primary School -->
+            <article class="education-card">
+              <div class="education-top">
+                <div class="education-logo">
+                  <!-- Placeholder SVG — replace with school logo -->
+                  <svg viewBox="0 0 80 80" aria-hidden="true">
+                    <rect x="9" y="9" width="62" height="62" rx="12" fill="#fff8e8" stroke="#0751a4" stroke-width="3"/>
+                    <text x="40" y="36" text-anchor="middle" font-size="9" font-weight="700" fill="#0751a4">NDLALAMBI</text>
+                    <text x="40" y="49" text-anchor="middle" font-size="8" fill="#0751a4">PRIMARY</text>
+                  </svg>
+                </div>
+
+                <div>
+                  <p class="education-date">2010 - 2016</p>
+                  <h3>Ndlalambi Nazarine Primary School</h3>
+                  <p class="education-degree">
+                    Primary Education
+                  </p>
+                </div>
+              </div>
+
+              <div class="education-details">
+                <div class="education-detail">
+                  <strong>Focus</strong>
+                  <p>
+                    Basic education subjects including Mathematics, English, Science, Social Studies, and other foundational subjects.
+                  </p>
+                </div>
+
+                <div class="education-detail">
+                  <strong>Background</strong>
+                  <p>
+                    Achieved a solid academic foundation, actively participated in school activities, and developed essential skills for future learning and personal growth.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
     </main>
 
     <footer class="site-footer">

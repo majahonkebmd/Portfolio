@@ -3,11 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Project Three | Majah</title>
-    <meta
-      name="description"
-      content="Project Three detail page for Majah's portfolio."
-    />
+    <title>Design System Library | Majah</title>
+    <meta name="description" content="An interface system built for consistency, reusable components, and scalable visual design." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -15,14 +12,158 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles/global.css" />
+    <style>
+
+      .project-detail {
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      .project-top {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+        gap: 52px;
+        align-items: start;
+        margin-bottom: 48px;
+      }
+
+      .project-heading {
+        padding-top: 4px;
+      }
+
+      .project-heading h1 {
+        margin: 8px 0 20px;
+        max-width: 680px;
+      }
+
+      .project-heading .project-lead {
+        max-width: 650px;
+        margin: 0;
+        font-size: 1.02rem;
+        line-height: 1.8;
+      }
+
+      .tech-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 9px;
+        margin-top: 24px;
+      }
+
+      .tech-pill {
+        display: inline-flex;
+        align-items: center;
+        padding: 7px 13px;
+        border: 1px solid rgba(15, 76, 129, 0.2);
+        border-radius: 999px;
+        background: rgba(15, 76, 129, 0.04);
+        color: #0f4c81;
+        font-size: 0.82rem;
+        font-weight: 600;
+      }
+
+      .project-small-image {
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f4f7f8;
+        color: #0f4c81;
+        border-radius: 10px;
+      }
+
+      .project-small-image svg {
+        width: 82%;
+        height: 82%;
+      }
+
+      .project-small-image span,
+      .project-large-image span {
+        position: absolute;
+        font-size: 0.8rem;
+        font-weight: 600;
+        opacity: 0.65;
+      }
+
+      .project-description {
+        max-width: 920px;
+        margin: 0 auto 48px;
+      }
+
+      .project-description p,
+      .project-conclusion p {
+        font-size: 1rem;
+        line-height: 1.9;
+        margin: 0;
+      }
+
+      .project-large-image {
+        position: relative;
+        width: 100%;
+        min-height: 460px;
+        margin: 0 auto 48px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f4f7f8;
+        color: #0f4c81;
+        border-radius: 12px;
+      }
+
+      .project-large-image svg {
+        width: 82%;
+        height: 82%;
+      }
+
+      .project-conclusion {
+        max-width: 920px;
+        margin: 0 auto 36px;
+      }
+
+      .back-to-portfolio {
+        display: flex;
+        justify-content: center;
+        margin-top: 8px;
+      }
+
+      @media (max-width: 800px) {
+        .project-top {
+          grid-template-columns: 1fr;
+          gap: 28px;
+        }
+
+        .project-small-image {
+          max-width: 560px;
+        }
+
+        .project-large-image {
+          min-height: 320px;
+        }
+      }
+
+      @media (max-width: 520px) {
+        .project-large-image {
+          min-height: 240px;
+        }
+
+        .tech-list {
+          gap: 7px;
+        }
+      }
+
+    </style>
   </head>
+
   <body>
     <header class="site-header">
       <div class="container header-inner">
         <a href="index.html" class="brand">Majah</a>
         <nav class="main-nav">
           <a href="index.html">Home</a>
-          <a href="portfolio.html">Portfolio</a>
+          <a href="portfolio.html" class="active">Portfolio</a>
           <a href="about.html">About</a>
           <a href="hobbies.html">Hobbies</a>
           <a href="contact.html">Contact</a>
@@ -37,29 +178,62 @@
 
     <main class="page-shell">
       <section class="section">
-        <div class="container">
-          <div class="section-heading">
-            <span class="eyebrow">Project Three</span>
-            <h1>Design System Library</h1>
-            <p>An interface system built for consistency, reusable components, and scalable visual design.</p>
+        <div class="container project-detail">
+
+          <!-- Top section: project name + frameworks + small image -->
+          <div class="project-top">
+            <div class="project-heading">
+              <span class="eyebrow">Project Three</span>
+              <h1>Design System Library</h1>
+              <div class="tech-list">
+                <span class="tech-pill">HTML</span><span class="tech-pill">CSS</span><span class="tech-pill">Utility Classes</span><span class="tech-pill">Design Tokens</span>
+              </div>
+            </div>
+
+            <!-- EDIT THIS: replace this placeholder with your small project image -->
+            <div class="project-small-image" role="img" aria-label="Design System Library project preview">
+              <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="70" y="70" width="660" height="360" rx="18" fill="none" stroke="currentColor" stroke-width="5"/>
+          <rect x="105" y="110" width="590" height="65" rx="12" fill="none" stroke="currentColor" stroke-width="5"/>
+          <rect x="105" y="205" width="175" height="165" rx="14" fill="none" stroke="currentColor" stroke-width="5"/>
+          <rect x="312" y="205" width="175" height="165" rx="14" fill="none" stroke="currentColor" stroke-width="5"/>
+          <rect x="519" y="205" width="176" height="165" rx="14" fill="none" stroke="currentColor" stroke-width="5"/>
+          <path d="M135 330 L175 275 L215 305 L255 240" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M342 330 H455 M342 298 H430 M550 330 H665 M550 298 H640" stroke="currentColor" stroke-width="9" stroke-linecap="round" opacity=".5"/>
+        </svg>
+              <span>Project Preview</span>
+            </div>
           </div>
-          <div class="projects-grid">
-            <article class="project-card">
-              <h3>Overview</h3>
-              <p>This system focuses on design consistency through buttons, cards, typography, and spacing rules.</p>
-            </article>
-            <article class="project-card">
-              <h3>Technologies</h3>
-              <p>HTML, CSS utility classes, tokens, responsive spacing, and accessible component patterns.</p>
-            </article>
-            <article class="project-card">
-              <h3>Highlights</h3>
-              <p>Clear component structure, polished UI, and reusable building blocks for future projects.</p>
-            </article>
+
+          <!-- Project explanation -->
+          <div class="project-description">
+            <p>This system focuses on design consistency through buttons, cards, typography, and spacing rules. It provides reusable building blocks that can help future projects maintain a consistent visual language.</p>
           </div>
-          <div class="hero-actions" style="margin-top: 2rem;">
+
+          <!-- Bigger project image -->
+          <!-- EDIT THIS: replace this placeholder with your main project image -->
+          <div class="project-large-image" role="img" aria-label="Design System Library project preview">
+            <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="70" y="70" width="660" height="360" rx="18" fill="none" stroke="currentColor" stroke-width="5"/>
+          <rect x="105" y="110" width="590" height="65" rx="12" fill="none" stroke="currentColor" stroke-width="5"/>
+          <rect x="105" y="205" width="175" height="165" rx="14" fill="none" stroke="currentColor" stroke-width="5"/>
+          <rect x="312" y="205" width="175" height="165" rx="14" fill="none" stroke="currentColor" stroke-width="5"/>
+          <rect x="519" y="205" width="176" height="165" rx="14" fill="none" stroke="currentColor" stroke-width="5"/>
+          <path d="M135 330 L175 275 L215 305 L255 240" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M342 330 H455 M342 298 H430 M550 330 H665 M550 298 H640" stroke="currentColor" stroke-width="9" stroke-linecap="round" opacity=".5"/>
+        </svg>
+            <span>Project Image — replace placeholder</span>
+          </div>
+
+          <!-- Conclusion -->
+          <div class="project-conclusion">
+            <p>The project demonstrates the value of reusable design patterns and a clear component structure when building interfaces that need to remain consistent as they grow.</p>
+          </div>
+
+          <div class="back-to-portfolio">
             <a class="button button-secondary" href="portfolio.html">Back to portfolio</a>
           </div>
+
         </div>
       </section>
     </main>

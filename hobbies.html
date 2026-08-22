@@ -15,6 +15,244 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles/global.css" />
+
+    <style>
+      /* =========================================================
+         HOBBIES PAGE
+         Card grid with image carousels + a social "scrolling" card
+         ========================================================= */
+
+      .hobbies-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+      }
+
+      .hobby-card {
+        padding: 22px 22px 24px;
+        border: 1px solid #dfe3e8;
+        border-radius: 16px;
+        background: #ffffff;
+        box-shadow: 0 18px 45px rgba(16, 42, 67, 0.07);
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .hobby-card-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .hobby-card-head h3 {
+        margin: 0;
+        font-size: 1.15rem;
+        color: #102a43;
+      }
+
+      .hobby-icon {
+        width: 34px;
+        height: 34px;
+        flex: 0 0 34px;
+        color: #0f4c81;
+      }
+
+      /* -------------------------
+         CHESS CARD
+         ------------------------- */
+
+      .chess-links-label {
+        margin: 0;
+        font-size: 0.85rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: #829ab1;
+      }
+
+      .chess-links {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+
+      .chess-tile {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        padding: 16px 14px;
+        border-radius: 12px;
+        border: 1px solid #dfe3e8;
+        background: #f7f9fb;
+        transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+      }
+
+      .chess-tile:hover {
+        transform: translateY(-2px);
+        border-color: #0f4c81;
+        background: #eef4fb;
+      }
+
+      .chess-tile span {
+        font-weight: 700;
+        color: #102a43;
+      }
+
+      .chess-tile small {
+        color: #627d98;
+        font-size: 0.82rem;
+      }
+
+      /* -------------------------
+         MEDIA CAROUSEL
+         ------------------------- */
+
+      .media-carousel {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .carousel-track {
+        position: relative;
+        flex: 1;
+        aspect-ratio: 16 / 10;
+        border-radius: 12px;
+        overflow: hidden;
+        background: #f4f7f8;
+      }
+
+      .carousel-slide {
+        position: absolute;
+        inset: 0;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #0f4c81;
+        gap: 6px;
+      }
+
+      .carousel-slide.is-active {
+        display: flex;
+      }
+
+      .carousel-slide svg {
+        width: 62%;
+        height: 62%;
+      }
+
+      .carousel-slide span {
+        font-size: 0.78rem;
+        font-weight: 600;
+        opacity: 0.65;
+      }
+
+      .carousel-btn {
+        flex: 0 0 auto;
+        width: 36px;
+        height: 36px;
+        border-radius: 999px;
+        border: 1px solid #dfe3e8;
+        background: #ffffff;
+        color: #102a43;
+        font-size: 1.1rem;
+        line-height: 1;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.2s ease, transform 0.2s ease;
+      }
+
+      .carousel-btn:hover {
+        background: #eef4fb;
+        transform: translateY(-1px);
+      }
+
+      .carousel-dots {
+        position: absolute;
+        left: 50%;
+        bottom: 10px;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 6px;
+      }
+
+      .carousel-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 999px;
+        border: none;
+        background: rgba(15, 76, 129, 0.3);
+        cursor: pointer;
+        padding: 0;
+      }
+
+      .carousel-dot.is-active {
+        background: #0f4c81;
+      }
+
+      .hobby-card p.hobby-desc {
+        margin: 0;
+        font-size: 0.95rem;
+      }
+
+      /* -------------------------
+         SOCIAL / "SCROLLING" CARD
+         ------------------------- */
+
+      .social-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .social-tile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        aspect-ratio: 1 / 1;
+        border-radius: 12px;
+        border: 1px solid #dfe3e8;
+        background: #f7f9fb;
+        color: #0f4c81;
+        transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+      }
+
+      .social-tile:hover {
+        transform: translateY(-2px);
+        border-color: #0f4c81;
+        background: #eef4fb;
+      }
+
+      .social-tile svg {
+        width: 44%;
+        height: 44%;
+      }
+
+      /* -------------------------
+         RESPONSIVE
+         ------------------------- */
+
+      @media (max-width: 760px) {
+        .hobbies-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 420px) {
+        .chess-links {
+          grid-template-columns: 1fr;
+        }
+
+        .social-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+    </style>
   </head>
   <body>
     <header class="site-header">
@@ -49,7 +287,7 @@
           <div class="panel-card">
             <h2>Free time focus</h2>
             <p>
-              Whether I’m exploring design trends, working on a personal project, or heading outdoors,
+              Whether I'm exploring design trends, working on a personal project, or heading outdoors,
               I like activities that keep my mind sharp and my work fresh.
             </p>
           </div>
@@ -57,28 +295,240 @@
       </section>
 
       <section class="section">
-        <div class="container projects-grid">
-          <article class="project-card">
-            <h3>Photography</h3>
-            <p>
-              I enjoy capturing places, people, and details through photography. It improves my eye for
-              composition and visual storytelling.
-            </p>
-          </article>
-          <article class="project-card">
-            <h3>Reading design writing</h3>
-            <p>
-              I read articles and books about product design, accessibility, and digital experiences to
-              keep improving how I build interfaces.
-            </p>
-          </article>
-          <article class="project-card">
-            <h3>Outdoor exploration</h3>
-            <p>
-              Hiking and exploring new environments helps me reset and come back to projects with fresh
-              energy and stronger problem-solving skills.
-            </p>
-          </article>
+        <div class="container">
+          <div class="hobbies-grid">
+
+            <!-- 1. CHESS -->
+            <article class="hobby-card">
+              <div class="hobby-card-head">
+                <h3>Chess</h3>
+                <!-- Placeholder SVG: chess pawn -->
+                <svg class="hobby-icon" viewBox="0 0 64 64" aria-hidden="true">
+                  <circle cx="32" cy="17" r="8" fill="none" stroke="currentColor" stroke-width="4"/>
+                  <path d="M22 34 C22 27 42 27 42 34 L38 46 H26 Z" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
+                  <path d="M18 56 H46" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                  <path d="M22 46 L18 56 M42 46 L46 56" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <p class="hobby-desc">
+                I play chess to challenge my mind and improve my strategic thinking. I'm an intermediate
+                player and enjoy games with friends and other players online.
+              </p>
+              <p class="chess-links-label">lichess.org &middot; chess.com</p>
+              <div class="chess-links">
+                <!-- EDIT THIS: replace with your real profile URL -->
+                <a class="chess-tile" href="https://www.chess.com/member/majahonke" target="_blank" rel="noopener">
+                  <span>Chess.com</span>
+                  <small>View my profile</small>
+                </a>
+                <!-- EDIT THIS: replace with your real profile URL -->
+                <a class="chess-tile" href="https://lichess.org/@/majahonke" target="_blank" rel="noopener">
+                  <span>Lichess</span>
+                  <small>View my profile</small>
+                </a>
+              </div>
+            </article>
+
+            <!-- 2. DRAWING -->
+            <article class="hobby-card">
+              <div class="hobby-card-head">
+                <h3>Drawing</h3>
+                <!-- Placeholder SVG: pencil -->
+                <svg class="hobby-icon" viewBox="0 0 64 64" aria-hidden="true">
+                  <path d="M14 50 L18 38 L42 14 L50 22 L26 46 Z" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
+                  <path d="M14 50 L11 56 L18 53" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
+                  <path d="M37 19 L45 27" stroke="currentColor" stroke-width="4"/>
+                </svg>
+              </div>
+              <p class="hobby-desc">
+                I sketch and doodle in my spare time — a quick way to unwind and practice seeing shapes
+                and composition differently.
+              </p>
+              <!-- EDIT THIS: swap placeholder slides for your own drawings -->
+              <div class="media-carousel" data-carousel>
+                <button class="carousel-btn" data-action="prev" aria-label="Previous image">&lsaquo;</button>
+                <div class="carousel-track">
+                  <div class="carousel-slide is-active">
+                    <svg viewBox="0 0 100 62" aria-hidden="true"><path d="M8 50 L30 20 L45 38 L62 12 L92 50" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>Sketch 1</span>
+                  </div>
+                  <div class="carousel-slide">
+                    <svg viewBox="0 0 100 62" aria-hidden="true"><path d="M8 50 L30 20 L45 38 L62 12 L92 50" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>Sketch 2</span>
+                  </div>
+                  <div class="carousel-slide">
+                    <svg viewBox="0 0 100 62" aria-hidden="true"><path d="M8 50 L30 20 L45 38 L62 12 L92 50" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>Sketch 3</span>
+                  </div>
+                  <div class="carousel-dots">
+                    <button class="carousel-dot is-active" aria-label="Go to slide 1"></button>
+                    <button class="carousel-dot" aria-label="Go to slide 2"></button>
+                    <button class="carousel-dot" aria-label="Go to slide 3"></button>
+                  </div>
+                </div>
+                <button class="carousel-btn" data-action="next" aria-label="Next image">&rsaquo;</button>
+              </div>
+            </article>
+
+            <!-- 3. FOOTBALL -->
+            <article class="hobby-card">
+              <div class="hobby-card-head">
+                <h3>Football</h3>
+                <!-- Placeholder SVG: football -->
+                <svg class="hobby-icon" viewBox="0 0 64 64" aria-hidden="true">
+                  <circle cx="32" cy="32" r="26" fill="none" stroke="currentColor" stroke-width="4"/>
+                  <path d="M32 18 L41 25 L38 36 L26 36 L23 25 Z" fill="none" stroke="currentColor" stroke-width="3"/>
+                  <path d="M32 18 V9 M41 25 L49 20 M38 36 L43 45 M26 36 L21 45 M23 25 L15 20" stroke="currentColor" stroke-width="3"/>
+                </svg>
+              </div>
+              <p class="hobby-desc">
+                I play with friends and other students, and I follow my favorite teams from South Africa
+                and around the world.
+              </p>
+              <!-- EDIT THIS: swap placeholder slides for your own photos -->
+              <div class="media-carousel" data-carousel>
+                <button class="carousel-btn" data-action="prev" aria-label="Previous image">&lsaquo;</button>
+                <div class="carousel-track">
+                  <div class="carousel-slide is-active">
+                    <svg viewBox="0 0 100 62" aria-hidden="true"><path d="M8 50 L30 20 L45 38 L62 12 L92 50" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>Match day 1</span>
+                  </div>
+                  <div class="carousel-slide">
+                    <svg viewBox="0 0 100 62" aria-hidden="true"><path d="M8 50 L30 20 L45 38 L62 12 L92 50" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>Match day 2</span>
+                  </div>
+                  <div class="carousel-slide">
+                    <svg viewBox="0 0 100 62" aria-hidden="true"><path d="M8 50 L30 20 L45 38 L62 12 L92 50" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>Match day 3</span>
+                  </div>
+                  <div class="carousel-dots">
+                    <button class="carousel-dot is-active" aria-label="Go to slide 1"></button>
+                    <button class="carousel-dot" aria-label="Go to slide 2"></button>
+                    <button class="carousel-dot" aria-label="Go to slide 3"></button>
+                  </div>
+                </div>
+                <button class="carousel-btn" data-action="next" aria-label="Next image">&rsaquo;</button>
+              </div>
+            </article>
+
+            <!-- 4. SOCIAL / "SCROLLING" -->
+            <article class="hobby-card">
+              <div class="hobby-card-head">
+                <h3>Find me online</h3>
+                <!-- Placeholder SVG: phone/scroll -->
+                <svg class="hobby-icon" viewBox="0 0 64 64" aria-hidden="true">
+                  <rect x="20" y="6" width="24" height="52" rx="6" fill="none" stroke="currentColor" stroke-width="4"/>
+                  <path d="M28 50 H36" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <p class="hobby-desc">
+                When I'm not building things, you'll usually find me scrolling through one of these.
+              </p>
+              <div class="social-grid">
+                <!-- EDIT THIS: replace # with your real profile links -->
+                <a class="social-tile" href="#" target="_blank" rel="noopener" aria-label="Facebook">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8h-2a2 2 0 0 0-2 2v2H9v3h3v7h3v-7h2.5l.5-3H15v-1.5c0-.83.34-1.5 1-1.5h2z"/></svg>
+                </a>
+                <a class="social-tile" href="#" target="_blank" rel="noopener" aria-label="Instagram">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1" fill="currentColor" stroke="none"/></svg>
+                </a>
+                <a class="social-tile" href="https://github.com/majahonkebmd" target="_blank" rel="noopener" aria-label="GitHub">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a9 9 0 0 0-2.85 17.54c.45.08.61-.2.61-.43v-1.68c-2.5.54-3.03-1.2-3.03-1.2-.41-1.04-1-1.32-1-1.32-.82-.56.06-.55.06-.55.9.06 1.38.93 1.38.93.8 1.37 2.1.98 2.62.75.08-.58.32-.98.57-1.2-2-.23-4.1-1-4.1-4.44 0-.98.35-1.78.92-2.4-.09-.23-.4-1.15.09-2.4 0 0 .75-.24 2.46.92a8.5 8.5 0 0 1 4.48 0c1.7-1.16 2.45-.92 2.45-.92.5 1.25.18 2.17.1 2.4.57.62.92 1.42.92 2.4 0 3.45-2.1 4.2-4.1 4.43.33.29.62.85.62 1.72v2.55c0 .24.16.52.62.43A9 9 0 0 0 12 3z"/></svg>
+                </a>
+                <a class="social-tile" href="#" target="_blank" rel="noopener" aria-label="X / Twitter">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4 L20 20 M20 4 L4 20"/></svg>
+                </a>
+                <a class="social-tile" href="#" target="_blank" rel="noopener" aria-label="YouTube">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="12" rx="4"/><path d="M11 10 L15 12 L11 14 Z" fill="currentColor" stroke="none"/></svg>
+                </a>
+                <a class="social-tile" href="https://www.linkedin.com/in/dlamini-majahonke-banele-180a1a245/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v6M8 7v.01M12 16v-3.5a1.5 1.5 0 0 1 3 0V16M12 12.5V16" stroke-linecap="round"/></svg>
+                </a>
+              </div>
+            </article>
+
+            <!-- 5. PHOTOGRAPHY -->
+            <article class="hobby-card">
+              <div class="hobby-card-head">
+                <h3>Photography</h3>
+                <!-- Placeholder SVG: camera -->
+                <svg class="hobby-icon" viewBox="0 0 64 64" aria-hidden="true">
+                  <rect x="8" y="20" width="48" height="34" rx="6" fill="none" stroke="currentColor" stroke-width="4"/>
+                  <path d="M22 20 L27 12 H37 L42 20" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
+                  <circle cx="32" cy="37" r="10" fill="none" stroke="currentColor" stroke-width="4"/>
+                </svg>
+              </div>
+              <p class="hobby-desc">
+                Capturing places, people, and small details helps me build a sharper eye for composition
+                and visual storytelling.
+              </p>
+              <!-- EDIT THIS: swap placeholder slides for your own photos -->
+              <div class="media-carousel" data-carousel>
+                <button class="carousel-btn" data-action="prev" aria-label="Previous image">&lsaquo;</button>
+                <div class="carousel-track">
+                  <div class="carousel-slide is-active">
+                    <svg viewBox="0 0 100 62" aria-hidden="true"><path d="M8 50 L30 20 L45 38 L62 12 L92 50" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>Photo 1</span>
+                  </div>
+                  <div class="carousel-slide">
+                    <svg viewBox="0 0 100 62" aria-hidden="true"><path d="M8 50 L30 20 L45 38 L62 12 L92 50" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>Photo 2</span>
+                  </div>
+                  <div class="carousel-slide">
+                    <svg viewBox="0 0 100 62" aria-hidden="true"><path d="M8 50 L30 20 L45 38 L62 12 L92 50" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>Photo 3</span>
+                  </div>
+                  <div class="carousel-dots">
+                    <button class="carousel-dot is-active" aria-label="Go to slide 1"></button>
+                    <button class="carousel-dot" aria-label="Go to slide 2"></button>
+                    <button class="carousel-dot" aria-label="Go to slide 3"></button>
+                  </div>
+                </div>
+                <button class="carousel-btn" data-action="next" aria-label="Next image">&rsaquo;</button>
+              </div>
+            </article>
+
+            <!-- 6. OUTDOOR EXPLORATION -->
+            <article class="hobby-card">
+              <div class="hobby-card-head">
+                <h3>Outdoor exploration</h3>
+                <!-- Placeholder SVG: mountain trail -->
+                <svg class="hobby-icon" viewBox="0 0 64 64" aria-hidden="true">
+                  <path d="M6 50 L22 24 L30 36 L40 16 L58 50 Z" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
+                  <circle cx="40" cy="16" r="4" fill="none" stroke="currentColor" stroke-width="3"/>
+                </svg>
+              </div>
+              <p class="hobby-desc">
+                Hiking and exploring new environments helps me reset and come back to projects with
+                fresh energy and stronger problem-solving skills.
+              </p>
+              <!-- EDIT THIS: swap placeholder slides for your own photos -->
+              <div class="media-carousel" data-carousel>
+                <button class="carousel-btn" data-action="prev" aria-label="Previous image">&lsaquo;</button>
+                <div class="carousel-track">
+                  <div class="carousel-slide is-active">
+                    <svg viewBox="0 0 100 62" aria-hidden="true"><path d="M8 50 L30 20 L45 38 L62 12 L92 50" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>Trail 1</span>
+                  </div>
+                  <div class="carousel-slide">
+                    <svg viewBox="0 0 100 62" aria-hidden="true"><path d="M8 50 L30 20 L45 38 L62 12 L92 50" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>Trail 2</span>
+                  </div>
+                  <div class="carousel-slide">
+                    <svg viewBox="0 0 100 62" aria-hidden="true"><path d="M8 50 L30 20 L45 38 L62 12 L92 50" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>Trail 3</span>
+                  </div>
+                  <div class="carousel-dots">
+                    <button class="carousel-dot is-active" aria-label="Go to slide 1"></button>
+                    <button class="carousel-dot" aria-label="Go to slide 2"></button>
+                    <button class="carousel-dot" aria-label="Go to slide 3"></button>
+                  </div>
+                </div>
+                <button class="carousel-btn" data-action="next" aria-label="Next image">&rsaquo;</button>
+              </div>
+            </article>
+
+          </div>
         </div>
       </section>
     </main>

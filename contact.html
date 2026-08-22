@@ -6,7 +6,7 @@
     <title>Contact | Majah</title>
     <meta
       name="description"
-      content="Contact page for Majah's portfolio with email and social links."
+      content="Contact page for Majah's portfolio with a message form, email, and social links."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,6 +15,201 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles/global.css" />
+
+    <style>
+      /* =========================================================
+         CONTACT PAGE
+         Intro + social row + image, then a message form
+         ========================================================= */
+
+      .contact-intro-grid {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 40px;
+        align-items: start;
+      }
+
+      .social-row {
+        display: flex;
+        gap: 16px;
+        margin-top: 28px;
+      }
+
+      .social-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        text-align: center;
+      }
+
+      .social-circle {
+        width: 56px;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        border: 1px solid #dfe3e8;
+        background: #ffffff;
+        color: #0f4c81;
+        box-shadow: 0 12px 30px rgba(16, 42, 67, 0.08);
+        transition: transform 0.2s ease, border-color 0.2s ease;
+      }
+
+      .social-item:hover .social-circle {
+        transform: translateY(-3px);
+        border-color: #0f4c81;
+      }
+
+      .social-circle svg {
+        width: 44%;
+        height: 44%;
+      }
+
+      .social-item span {
+        font-size: 0.82rem;
+        color: #486581;
+      }
+
+      .contact-info-list {
+        display: grid;
+        gap: 10px;
+        margin-top: 28px;
+        padding-top: 24px;
+        border-top: 1px solid #dfe3e8;
+      }
+
+      .contact-info-list div {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        font-size: 0.92rem;
+        color: #486581;
+      }
+
+      .contact-info-list strong {
+        color: #102a43;
+      }
+
+      .contact-portrait {
+        aspect-ratio: 4 / 3;
+        border-radius: 18px;
+        border: 1px solid #dfe3e8;
+        background: #f4f7f8;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #0f4c81;
+        overflow: hidden;
+      }
+
+      .contact-portrait svg {
+        width: 70%;
+        height: 70%;
+      }
+
+      /* -------------------------
+         MESSAGE FORM
+         ------------------------- */
+
+      .message-shell {
+        padding-top: 0;
+      }
+
+      .message-form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+      }
+
+      .form-fields {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      .form-field {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .form-field label {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: #102a43;
+      }
+
+      .form-field input,
+      .form-field textarea {
+        font: inherit;
+        padding: 0.85rem 1rem;
+        border-radius: 0.85rem;
+        border: 1px solid #dfe3e8;
+        background: #ffffff;
+        color: #102a43;
+        resize: vertical;
+      }
+
+      .form-field input:focus,
+      .form-field textarea:focus {
+        outline: 2px solid #0f4c81;
+        outline-offset: 1px;
+      }
+
+      .message-field textarea {
+        flex: 1;
+        min-height: 220px;
+      }
+
+      .message-field {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        height: 100%;
+      }
+
+      .form-submit-row {
+        grid-column: 1 / -1;
+        display: flex;
+        justify-content: center;
+        margin-top: 4px;
+      }
+
+      .form-status {
+        grid-column: 1 / -1;
+        text-align: center;
+        font-size: 0.88rem;
+        color: #486581;
+        min-height: 1.2em;
+      }
+
+      @media (max-width: 900px) {
+        .contact-intro-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .message-form {
+          grid-template-columns: 1fr;
+        }
+
+        .message-field textarea {
+          min-height: 160px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .social-row {
+          gap: 10px;
+        }
+
+        .social-circle {
+          width: 48px;
+          height: 48px;
+        }
+      }
+    </style>
   </head>
   <body>
     <header class="site-header">
@@ -36,28 +231,93 @@
     </header>
 
     <main class="page-shell">
+
+      <!-- =======================================================
+           INTRO: heading, social row, contact details, portrait
+           ======================================================= -->
       <section class="section contact-shell">
-        <div class="container contact-grid">
+        <div class="container contact-intro-grid">
           <div>
-            <span class="eyebrow">Let’s connect</span>
+            <span class="eyebrow">Let's connect</span>
             <h1>Reach out for projects or collaborations.</h1>
             <p>Send a message to discuss ideas, opportunities, or to view the full case study.</p>
-            <div class="contact-info">
-              <a href="mailto:majahonkedlamini5@gmail.com">majahonkedlamini5@gmail.com</a>
-              <a href="https://github.com/majahonkebmd" target="_blank" rel="noopener">GitHub</a>
-              <a href="https://www.linkedin.com/in/dlamini-majahonke-banele-180a1a245/" target="_blank" rel="noopener">LinkedIn</a>
+
+            <div class="social-row">
+              <a class="social-item" href="https://www.linkedin.com/in/dlamini-majahonke-banele-180a1a245/" target="_blank" rel="noopener">
+                <span class="social-circle">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v6M8 7v.01M12 16v-3.5a1.5 1.5 0 0 1 3 0V16M12 12.5V16" stroke-linecap="round"/></svg>
+                </span>
+                <span>LinkedIn</span>
+              </a>
+              <a class="social-item" href="https://github.com/majahonkebmd" target="_blank" rel="noopener">
+                <span class="social-circle">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a9 9 0 0 0-2.85 17.54c.45.08.61-.2.61-.43v-1.68c-2.5.54-3.03-1.2-3.03-1.2-.41-1.04-1-1.32-1-1.32-.82-.56.06-.55.06-.55.9.06 1.38.93 1.38.93.8 1.37 2.1.98 2.62.75.08-.58.32-.98.57-1.2-2-.23-4.1-1-4.1-4.44 0-.98.35-1.78.92-2.4-.09-.23-.4-1.15.09-2.4 0 0 .75-.24 2.46.92a8.5 8.5 0 0 1 4.48 0c1.7-1.16 2.45-.92 2.45-.92.5 1.25.18 2.17.1 2.4.57.62.92 1.42.92 2.4 0 3.45-2.1 4.2-4.1 4.43.33.29.62.85.62 1.72v2.55c0 .24.16.52.62.43A9 9 0 0 0 12 3z"/></svg>
+                </span>
+                <span>GitHub</span>
+              </a>
+              <!-- EDIT THIS: replace # with your real Facebook profile URL -->
+              <a class="social-item" href="#" target="_blank" rel="noopener">
+                <span class="social-circle">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8h-2a2 2 0 0 0-2 2v2H9v3h3v7h3v-7h2.5l.5-3H15v-1.5c0-.83.34-1.5 1-1.5h2z"/></svg>
+                </span>
+                <span>Facebook</span>
+              </a>
+            </div>
+
+            <div class="contact-info-list">
+              <div><span>Email</span><strong><a href="mailto:majahonkedlamini5@gmail.com">majahonkedlamini5@gmail.com</a></strong></div>
+              <div><span>Location</span><strong>Cape Town, South Africa</strong></div>
+              <div><span>Availability</span><strong>Open to freelance &amp; academic work</strong></div>
             </div>
           </div>
-          <div class="panel-card">
-            <h2>Contact details</h2>
-            <p>
-              I’m happy to discuss new opportunities or answer questions about my work.
-            </p>
-            <ul>
-              <li>Location: Cape Town, South Africa</li>
-              <li>Availability: Open to freelance and academic collaborations</li>
-            </ul>
+
+          <!-- EDIT THIS: replace placeholder with a real portrait or workspace photo -->
+          <div class="contact-portrait" role="img" aria-label="Placeholder portrait image">
+            <svg viewBox="0 0 100 62" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M8 50 L30 20 L45 38 L62 12 L92 50" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
           </div>
+        </div>
+      </section>
+
+      <!-- =======================================================
+           MESSAGE FORM
+           ======================================================= -->
+      <section class="section message-shell">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow">Get in touch</span>
+            <h2>Send me a message</h2>
+            <p>Fill in your details below and it'll open in your email client, ready to send.</p>
+          </div>
+
+          <!-- EDIT THIS: data-destination sets where the message goes -->
+          <form
+            id="contact-form"
+            class="message-form"
+            data-destination="majahonkedlamini5@gmail.com"
+          >
+            <div class="form-fields">
+              <div class="form-field">
+                <label for="contact-name">Name</label>
+                <input id="contact-name" name="name" type="text" placeholder="Your name" required />
+              </div>
+              <div class="form-field">
+                <label for="contact-email">Email</label>
+                <input id="contact-email" name="email" type="email" placeholder="you@example.com" required />
+              </div>
+            </div>
+
+            <div class="message-field">
+              <label for="contact-message">Message</label>
+              <textarea id="contact-message" name="message" placeholder="Tell me a bit about your project or idea…" required></textarea>
+            </div>
+
+            <div class="form-submit-row">
+              <button class="button button-primary" type="submit">Send message</button>
+            </div>
+            <p class="form-status">This opens a pre-filled email in your default mail app.</p>
+          </form>
         </div>
       </section>
     </main>
