@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Responsive Portfolio Website | Majah</title>
-    <meta name="description" content="A clean portfolio page built to present projects with readability, speed, and mobile-first design." />
+    <title>Major | Front-End Portfolio | Majah</title>
+    <meta name="description" content="A complete personal portfolio website built with HTML, CSS, and JavaScript to present work professionally with clean, responsive layouts." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -77,6 +77,14 @@
       .project-small-image svg {
         width: 82%;
         height: 82%;
+      }
+
+      .project-small-image img,
+      .project-large-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
       }
 
       .project-small-image span,
@@ -183,45 +191,31 @@
           <!-- Top section: project name + frameworks + small image -->
           <div class="project-top">
             <div class="project-heading">
-              <span class="eyebrow">Project One</span>
-              <h1>Responsive Portfolio Website</h1>
+              <span class="eyebrow">Project One · Personal Project</span>
+              <h1>Major | Front-End Portfolio</h1>
               <div class="tech-list">
-                <span class="tech-pill">HTML</span><span class="tech-pill">CSS</span><span class="tech-pill">JavaScript</span><span class="tech-pill">Responsive Design</span>
+                <span class="tech-pill">HTML</span><span class="tech-pill">CSS3</span><span class="tech-pill">JavaScript</span><span class="tech-pill">Responsive Design</span><span class="tech-pill">Semantic HTML</span><span class="tech-pill">Modular CSS</span>
               </div>
             </div>
 
-            <!-- EDIT THIS: replace this placeholder with your small project image -->
-            <div class="project-small-image" role="img" aria-label="Responsive Portfolio Website project preview">
-              <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <rect x="70" y="70" width="660" height="360" rx="18" fill="none" stroke="currentColor" stroke-width="5"/>
-          <rect x="105" y="110" width="210" height="20" rx="10" fill="currentColor" opacity=".3"/>
-          <rect x="105" y="150" width="350" height="12" rx="6" fill="currentColor" opacity=".18"/>
-          <path d="M120 370 L260 220 L350 305 L485 175 L675 370" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-              <span>Project Preview</span>
+            <div class="project-small-image" role="img" aria-label="Portfolio website home page">
+              <img src="images/PortfolioHome.png" alt="Major Front-End Portfolio home page showing introduction and navigation" />
             </div>
           </div>
 
           <!-- Project explanation -->
           <div class="project-description">
-            <p>This website is designed to showcase work professionally and remain easy to navigate on all screen sizes. The structure focuses on clear content, readable layouts, and a simple navigation experience.</p>
+            <p>This portfolio website was created to present my background, skills, projects, interests, and academic journey in a professional and interactive way. It serves as a central platform where potential collaborators, employers, and researchers can learn more about my work and connect with me. The website is built using HTML, CSS, and JavaScript, with a responsive design to provide a smooth experience across different devices.</p>
           </div>
 
           <!-- Bigger project image -->
-          <!-- EDIT THIS: replace this placeholder with your main project image -->
-          <div class="project-large-image" role="img" aria-label="Responsive Portfolio Website project preview">
-            <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <rect x="70" y="70" width="660" height="360" rx="18" fill="none" stroke="currentColor" stroke-width="5"/>
-          <rect x="105" y="110" width="210" height="20" rx="10" fill="currentColor" opacity=".3"/>
-          <rect x="105" y="150" width="350" height="12" rx="6" fill="currentColor" opacity=".18"/>
-          <path d="M120 370 L260 220 L350 305 L485 175 L675 370" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-            <span>Project Image — replace placeholder</span>
+          <div class="project-large-image" role="img" aria-label="Major Front-End Portfolio project poster">
+            <img src="images/portfolioPoster.png" alt="Major Front-End Portfolio poster covering introduction, site structure, core stack, and key practices" />
           </div>
 
           <!-- Conclusion -->
           <div class="project-conclusion">
-            <p>The project demonstrates how a focused structure and responsive design can turn a simple portfolio into a professional and accessible web experience.</p>
+            <p>This portfolio represents my journey, skills, and growth as a developer while providing a platform to showcase my work and connect with new opportunities.</p>
           </div>
 
           <div class="back-to-portfolio">

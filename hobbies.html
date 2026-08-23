@@ -19,7 +19,6 @@
     <style>
       /* =========================================================
          HOBBIES PAGE
-         Card grid with image carousels + a social "scrolling" card
          ========================================================= */
 
       .hobbies-grid {
@@ -57,11 +56,9 @@
         height: 34px;
         flex: 0 0 34px;
         color: #0f4c81;
+        object-fit: cover;
+        border-radius: 6px;
       }
-
-      /* -------------------------
-         CHESS CARD
-         ------------------------- */
 
       .chess-links-label {
         margin: 0;
@@ -113,6 +110,7 @@
         display: flex;
         align-items: center;
         gap: 10px;
+        user-select: none;
       }
 
       .carousel-track {
@@ -127,27 +125,24 @@
       .carousel-slide {
         position: absolute;
         inset: 0;
-        display: none;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        color: #0f4c81;
-        gap: 6px;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity 0.35s ease;
       }
 
       .carousel-slide.is-active {
-        display: flex;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        z-index: 1;
       }
 
-      .carousel-slide svg {
-        width: 62%;
-        height: 62%;
-      }
-
-      .carousel-slide span {
-        font-size: 0.78rem;
-        font-weight: 600;
-        opacity: 0.65;
+      .carousel-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
       }
 
       .carousel-btn {
@@ -158,18 +153,30 @@
         border: 1px solid #dfe3e8;
         background: #ffffff;
         color: #102a43;
-        font-size: 1.1rem;
+        font-size: 1.25rem;
         line-height: 1;
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
+        position: relative;
+        z-index: 5;
+        padding: 0;
         transition: background-color 0.2s ease, transform 0.2s ease;
       }
 
       .carousel-btn:hover {
         background: #eef4fb;
         transform: translateY(-1px);
+      }
+
+      .carousel-btn:active {
+        transform: translateY(0);
+      }
+
+      .carousel-btn:focus-visible {
+        outline: 2px solid #0f4c81;
+        outline-offset: 2px;
       }
 
       .carousel-dots {
@@ -179,20 +186,24 @@
         transform: translateX(-50%);
         display: flex;
         gap: 6px;
+        z-index: 4;
       }
 
       .carousel-dot {
-        width: 7px;
-        height: 7px;
+        width: 8px;
+        height: 8px;
         border-radius: 999px;
         border: none;
-        background: rgba(15, 76, 129, 0.3);
+        background: rgba(255, 255, 255, 0.55);
+        box-shadow: 0 0 0 1px rgba(15, 76, 129, 0.25);
         cursor: pointer;
         padding: 0;
+        transition: background-color 0.2s ease, transform 0.2s ease;
       }
 
       .carousel-dot.is-active {
         background: #0f4c81;
+        transform: scale(1.15);
       }
 
       .hobby-card p.hobby-desc {
@@ -201,7 +212,7 @@
       }
 
       /* -------------------------
-         SOCIAL / "SCROLLING" CARD
+         SOCIAL
          ------------------------- */
 
       .social-grid {
@@ -233,10 +244,6 @@
         height: 44%;
       }
 
-      /* -------------------------
-         RESPONSIVE
-         ------------------------- */
-
       @media (max-width: 760px) {
         .hobbies-grid {
           grid-template-columns: 1fr;
@@ -246,10 +253,6 @@
       @media (max-width: 420px) {
         .chess-links {
           grid-template-columns: 1fr;
-        }
-
-        .social-grid {
-          grid-template-columns: repeat(3, minmax(0, 1fr));
         }
       }
     </style>
@@ -265,7 +268,7 @@
           <a href="hobbies.html" class="active">Hobbies</a>
           <a href="contact.html">Contact</a>
         </nav>
-        <button class="mobile-toggle" aria-label="Open navigation" aria-expanded="false">
+        <button class="mobile-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
           <span></span>
           <span></span>
           <span></span>
@@ -302,13 +305,7 @@
             <article class="hobby-card">
               <div class="hobby-card-head">
                 <h3>Chess</h3>
-                <!-- Placeholder SVG: chess pawn -->
-                <svg class="hobby-icon" viewBox="0 0 64 64" aria-hidden="true">
-                  <circle cx="32" cy="17" r="8" fill="none" stroke="currentColor" stroke-width="4"/>
-                  <path d="M22 34 C22 27 42 27 42 34 L38 46 H26 Z" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
-                  <path d="M18 56 H46" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
-                  <path d="M22 46 L18 56 M42 46 L46 56" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
-                </svg>
+                <img class="hobby-icon" src="images/hobbies/pawn.jpg" alt="Chess pawn" />
               </div>
               <p class="hobby-desc">
                 I play chess to challenge my mind and improve my strategic thinking. I'm an intermediate
@@ -316,12 +313,10 @@
               </p>
               <p class="chess-links-label">lichess.org &middot; chess.com</p>
               <div class="chess-links">
-                <!-- EDIT THIS: replace with your real profile URL -->
                 <a class="chess-tile" href="https://www.chess.com/member/majahonke" target="_blank" rel="noopener">
                   <span>Chess.com</span>
                   <small>View my profile</small>
                 </a>
-                <!-- EDIT THIS: replace with your real profile URL -->
                 <a class="chess-tile" href="https://lichess.org/@/majahonke" target="_blank" rel="noopener">
                   <span>Lichess</span>
                   <small>View my profile</small>
@@ -333,40 +328,43 @@
             <article class="hobby-card">
               <div class="hobby-card-head">
                 <h3>Drawing</h3>
-                <!-- Placeholder SVG: pencil -->
-                <svg class="hobby-icon" viewBox="0 0 64 64" aria-hidden="true">
-                  <path d="M14 50 L18 38 L42 14 L50 22 L26 46 Z" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
-                  <path d="M14 50 L11 56 L18 53" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
-                  <path d="M37 19 L45 27" stroke="currentColor" stroke-width="4"/>
-                </svg>
+                <img class="hobby-icon" src="images/hobbies/pencil.webp" alt="Pencil" />
               </div>
               <p class="hobby-desc">
                 I sketch and doodle in my spare time — a quick way to unwind and practice seeing shapes
                 and composition differently.
               </p>
-              <!-- EDIT THIS: swap placeholder slides for your own drawings -->
               <div class="media-carousel" data-carousel>
-                <button class="carousel-btn" data-action="prev" aria-label="Previous image">&lsaquo;</button>
+                <button type="button" class="carousel-btn" data-action="prev" aria-label="Previous image">&#8249;</button>
                 <div class="carousel-track">
                   <div class="carousel-slide is-active">
-                    <svg viewBox="0 0 100 62" aria-hidden="true"><path d="M8 50 L30 20 L45 38 L62 12 L92 50" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    <span>Sketch 1</span>
+                    <img src="images/hobbies/chessboarddrawing.jpg" alt="Chessboard drawing" />
                   </div>
                   <div class="carousel-slide">
-                    <svg viewBox="0 0 100 62" aria-hidden="true"><path d="M8 50 L30 20 L45 38 L62 12 L92 50" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    <span>Sketch 2</span>
+                    <img src="images/hobbies/joystickdrawing.jpg" alt="Joystick drawing" />
                   </div>
                   <div class="carousel-slide">
-                    <svg viewBox="0 0 100 62" aria-hidden="true"><path d="M8 50 L30 20 L45 38 L62 12 L92 50" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    <span>Sketch 3</span>
+                    <img src="images/hobbies/lfcdrawing.jpg" alt="LFC drawing" />
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="images/hobbies/pawndrawing.jpg" alt="Pawn drawing" />
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="images/hobbies/r15drawing.jpg" alt="R15 drawing" />
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="images/hobbies/scooterdrawing.jpg" alt="Scooter drawing" />
                   </div>
                   <div class="carousel-dots">
-                    <button class="carousel-dot is-active" aria-label="Go to slide 1"></button>
-                    <button class="carousel-dot" aria-label="Go to slide 2"></button>
-                    <button class="carousel-dot" aria-label="Go to slide 3"></button>
+                    <button type="button" class="carousel-dot is-active" aria-label="Go to slide 1"></button>
+                    <button type="button" class="carousel-dot" aria-label="Go to slide 2"></button>
+                    <button type="button" class="carousel-dot" aria-label="Go to slide 3"></button>
+                    <button type="button" class="carousel-dot" aria-label="Go to slide 4"></button>
+                    <button type="button" class="carousel-dot" aria-label="Go to slide 5"></button>
+                    <button type="button" class="carousel-dot" aria-label="Go to slide 6"></button>
                   </div>
                 </div>
-                <button class="carousel-btn" data-action="next" aria-label="Next image">&rsaquo;</button>
+                <button type="button" class="carousel-btn" data-action="next" aria-label="Next image">&#8250;</button>
               </div>
             </article>
 
@@ -374,40 +372,43 @@
             <article class="hobby-card">
               <div class="hobby-card-head">
                 <h3>Football</h3>
-                <!-- Placeholder SVG: football -->
-                <svg class="hobby-icon" viewBox="0 0 64 64" aria-hidden="true">
-                  <circle cx="32" cy="32" r="26" fill="none" stroke="currentColor" stroke-width="4"/>
-                  <path d="M32 18 L41 25 L38 36 L26 36 L23 25 Z" fill="none" stroke="currentColor" stroke-width="3"/>
-                  <path d="M32 18 V9 M41 25 L49 20 M38 36 L43 45 M26 36 L21 45 M23 25 L15 20" stroke="currentColor" stroke-width="3"/>
-                </svg>
+                <img class="hobby-icon" src="images/hobbies/favSA Footballteam.jpg" alt="Favourite SA football team" />
               </div>
               <p class="hobby-desc">
                 I play with friends and other students, and I follow my favorite teams from South Africa
                 and around the world.
               </p>
-              <!-- EDIT THIS: swap placeholder slides for your own photos -->
               <div class="media-carousel" data-carousel>
-                <button class="carousel-btn" data-action="prev" aria-label="Previous image">&lsaquo;</button>
+                <button type="button" class="carousel-btn" data-action="prev" aria-label="Previous image">&#8249;</button>
                 <div class="carousel-track">
                   <div class="carousel-slide is-active">
-                    <svg viewBox="0 0 100 62" aria-hidden="true"><path d="M8 50 L30 20 L45 38 L62 12 L92 50" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    <span>Match day 1</span>
+                    <img src="images/hobbies/R7.jpg" alt="R7" />
                   </div>
                   <div class="carousel-slide">
-                    <svg viewBox="0 0 100 62" aria-hidden="true"><path d="M8 50 L30 20 L45 38 L62 12 L92 50" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    <span>Match day 2</span>
+                    <img src="images/hobbies/MoSalah.jpg" alt="Mo Salah" />
                   </div>
                   <div class="carousel-slide">
-                    <svg viewBox="0 0 100 62" aria-hidden="true"><path d="M8 50 L30 20 L45 38 L62 12 L92 50" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    <span>Match day 3</span>
+                    <img src="images/hobbies/meTraining.jpg" alt="Training" />
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="images/hobbies/metrainingg.jpg" alt="Training session" />
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="images/hobbies/JAdams.jpg" alt="J Adams" />
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="images/hobbies/ndhuFgame.jpg" alt="NDHU football game" />
                   </div>
                   <div class="carousel-dots">
-                    <button class="carousel-dot is-active" aria-label="Go to slide 1"></button>
-                    <button class="carousel-dot" aria-label="Go to slide 2"></button>
-                    <button class="carousel-dot" aria-label="Go to slide 3"></button>
+                    <button type="button" class="carousel-dot is-active" aria-label="Go to slide 1"></button>
+                    <button type="button" class="carousel-dot" aria-label="Go to slide 2"></button>
+                    <button type="button" class="carousel-dot" aria-label="Go to slide 3"></button>
+                    <button type="button" class="carousel-dot" aria-label="Go to slide 4"></button>
+                    <button type="button" class="carousel-dot" aria-label="Go to slide 5"></button>
+                    <button type="button" class="carousel-dot" aria-label="Go to slide 6"></button>
                   </div>
                 </div>
-                <button class="carousel-btn" data-action="next" aria-label="Next image">&rsaquo;</button>
+                <button type="button" class="carousel-btn" data-action="next" aria-label="Next image">&#8250;</button>
               </div>
             </article>
 
@@ -415,17 +416,12 @@
             <article class="hobby-card">
               <div class="hobby-card-head">
                 <h3>Find me online</h3>
-                <!-- Placeholder SVG: phone/scroll -->
-                <svg class="hobby-icon" viewBox="0 0 64 64" aria-hidden="true">
-                  <rect x="20" y="6" width="24" height="52" rx="6" fill="none" stroke="currentColor" stroke-width="4"/>
-                  <path d="M28 50 H36" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
-                </svg>
+                <img class="hobby-icon" src="images/hobbies/scrolling.png" alt="Scrolling" />
               </div>
               <p class="hobby-desc">
                 When I'm not building things, you'll usually find me scrolling through one of these.
               </p>
               <div class="social-grid">
-                <!-- EDIT THIS: replace # with your real profile links -->
                 <a class="social-tile" href="#" target="_blank" rel="noopener" aria-label="Facebook">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8h-2a2 2 0 0 0-2 2v2H9v3h3v7h3v-7h2.5l.5-3H15v-1.5c0-.83.34-1.5 1-1.5h2z"/></svg>
                 </a>
@@ -451,7 +447,6 @@
             <article class="hobby-card">
               <div class="hobby-card-head">
                 <h3>Photography</h3>
-                <!-- Placeholder SVG: camera -->
                 <svg class="hobby-icon" viewBox="0 0 64 64" aria-hidden="true">
                   <rect x="8" y="20" width="48" height="34" rx="6" fill="none" stroke="currentColor" stroke-width="4"/>
                   <path d="M22 20 L27 12 H37 L42 20" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
@@ -462,69 +457,61 @@
                 Capturing places, people, and small details helps me build a sharper eye for composition
                 and visual storytelling.
               </p>
-              <!-- EDIT THIS: swap placeholder slides for your own photos -->
               <div class="media-carousel" data-carousel>
-                <button class="carousel-btn" data-action="prev" aria-label="Previous image">&lsaquo;</button>
+                <button type="button" class="carousel-btn" data-action="prev" aria-label="Previous image">&#8249;</button>
                 <div class="carousel-track">
                   <div class="carousel-slide is-active">
-                    <svg viewBox="0 0 100 62" aria-hidden="true"><path d="M8 50 L30 20 L45 38 L62 12 L92 50" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    <span>Photo 1</span>
+                    <img src="images/hobbies/workingonproject.jpg" alt="Working on a project" />
                   </div>
                   <div class="carousel-slide">
-                    <svg viewBox="0 0 100 62" aria-hidden="true"><path d="M8 50 L30 20 L45 38 L62 12 L92 50" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    <span>Photo 2</span>
-                  </div>
-                  <div class="carousel-slide">
-                    <svg viewBox="0 0 100 62" aria-hidden="true"><path d="M8 50 L30 20 L45 38 L62 12 L92 50" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    <span>Photo 3</span>
+                    <img src="images/hobbies/laptopStudying.jpg" alt="Laptop studying" />
                   </div>
                   <div class="carousel-dots">
-                    <button class="carousel-dot is-active" aria-label="Go to slide 1"></button>
-                    <button class="carousel-dot" aria-label="Go to slide 2"></button>
-                    <button class="carousel-dot" aria-label="Go to slide 3"></button>
+                    <button type="button" class="carousel-dot is-active" aria-label="Go to slide 1"></button>
+                    <button type="button" class="carousel-dot" aria-label="Go to slide 2"></button>
                   </div>
                 </div>
-                <button class="carousel-btn" data-action="next" aria-label="Next image">&rsaquo;</button>
+                <button type="button" class="carousel-btn" data-action="next" aria-label="Next image">&#8250;</button>
               </div>
             </article>
 
-            <!-- 6. OUTDOOR EXPLORATION -->
+            <!-- 6. OTHER INTERESTS -->
             <article class="hobby-card">
               <div class="hobby-card-head">
-                <h3>Outdoor exploration</h3>
-                <!-- Placeholder SVG: mountain trail -->
+                <h3>Other interests</h3>
                 <svg class="hobby-icon" viewBox="0 0 64 64" aria-hidden="true">
-                  <path d="M6 50 L22 24 L30 36 L40 16 L58 50 Z" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
-                  <circle cx="40" cy="16" r="4" fill="none" stroke="currentColor" stroke-width="3"/>
+                  <circle cx="22" cy="42" r="10" fill="none" stroke="currentColor" stroke-width="4"/>
+                  <circle cx="42" cy="22" r="8" fill="none" stroke="currentColor" stroke-width="4"/>
+                  <path d="M30 36 L38 28" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
                 </svg>
               </div>
               <p class="hobby-desc">
-                Hiking and exploring new environments helps me reset and come back to projects with
-                fresh energy and stronger problem-solving skills.
+                Beyond the main hobbies, I also enjoy a game of pool, following chess online, and
+                other casual activities that keep things fun and balanced.
               </p>
-              <!-- EDIT THIS: swap placeholder slides for your own photos -->
               <div class="media-carousel" data-carousel>
-                <button class="carousel-btn" data-action="prev" aria-label="Previous image">&lsaquo;</button>
+                <button type="button" class="carousel-btn" data-action="prev" aria-label="Previous image">&#8249;</button>
                 <div class="carousel-track">
                   <div class="carousel-slide is-active">
-                    <svg viewBox="0 0 100 62" aria-hidden="true"><path d="M8 50 L30 20 L45 38 L62 12 L92 50" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    <span>Trail 1</span>
+                    <img src="images/hobbies/playingpool.jpg" alt="Playing pool" />
                   </div>
                   <div class="carousel-slide">
-                    <svg viewBox="0 0 100 62" aria-hidden="true"><path d="M8 50 L30 20 L45 38 L62 12 L92 50" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    <span>Trail 2</span>
+                    <img src="images/hobbies/poolplayingsorted.jpg" alt="Pool playing" />
                   </div>
                   <div class="carousel-slide">
-                    <svg viewBox="0 0 100 62" aria-hidden="true"><path d="M8 50 L30 20 L45 38 L62 12 L92 50" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    <span>Trail 3</span>
+                    <img src="images/hobbies/lichess.png" alt="Lichess" />
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="images/hobbies/chessdotcom.png" alt="Chess.com" />
                   </div>
                   <div class="carousel-dots">
-                    <button class="carousel-dot is-active" aria-label="Go to slide 1"></button>
-                    <button class="carousel-dot" aria-label="Go to slide 2"></button>
-                    <button class="carousel-dot" aria-label="Go to slide 3"></button>
+                    <button type="button" class="carousel-dot is-active" aria-label="Go to slide 1"></button>
+                    <button type="button" class="carousel-dot" aria-label="Go to slide 2"></button>
+                    <button type="button" class="carousel-dot" aria-label="Go to slide 3"></button>
+                    <button type="button" class="carousel-dot" aria-label="Go to slide 4"></button>
                   </div>
                 </div>
-                <button class="carousel-btn" data-action="next" aria-label="Next image">&rsaquo;</button>
+                <button type="button" class="carousel-btn" data-action="next" aria-label="Next image">&#8250;</button>
               </div>
             </article>
 
@@ -539,6 +526,121 @@
       </div>
     </footer>
 
+    <!-- Shared site script (nav, year, contact form) -->
     <script src="scripts/main.js"></script>
+
+    <!-- Carousel logic lives here so it always runs on this page -->
+    <script>
+      (function () {
+        var carousels = document.querySelectorAll("[data-carousel]");
+
+        carousels.forEach(function (carousel, carouselIndex) {
+          var slides = Array.prototype.slice.call(
+            carousel.querySelectorAll(".carousel-slide")
+          );
+          if (!slides.length) return;
+
+          var prevBtn = carousel.querySelector('[data-action="prev"]');
+          var nextBtn = carousel.querySelector('[data-action="next"]');
+          var dots = Array.prototype.slice.call(
+            carousel.querySelectorAll(".carousel-dot")
+          );
+
+          var index = 0;
+          for (var i = 0; i < slides.length; i++) {
+            if (slides[i].classList.contains("is-active")) {
+              index = i;
+              break;
+            }
+          }
+
+          var timer = null;
+          var paused = false;
+          var INTERVAL = 5000;
+          var START_DELAY = (carouselIndex * 1300) % INTERVAL;
+
+          function show(nextIndex) {
+            index = ((nextIndex % slides.length) + slides.length) % slides.length;
+            slides.forEach(function (slide, i) {
+              if (i === index) {
+                slide.classList.add("is-active");
+              } else {
+                slide.classList.remove("is-active");
+              }
+            });
+            dots.forEach(function (dot, i) {
+              if (i === index) {
+                dot.classList.add("is-active");
+              } else {
+                dot.classList.remove("is-active");
+              }
+            });
+          }
+
+          function next() {
+            show(index + 1);
+          }
+
+          function prev() {
+            show(index - 1);
+          }
+
+          function stop() {
+            if (timer) {
+              clearInterval(timer);
+              timer = null;
+            }
+          }
+
+          function start() {
+            stop();
+            if (slides.length < 2 || paused) return;
+            timer = setInterval(next, INTERVAL);
+          }
+
+          if (prevBtn) {
+            prevBtn.addEventListener("click", function (e) {
+              e.preventDefault();
+              e.stopPropagation();
+              prev();
+              start();
+            });
+          }
+
+          if (nextBtn) {
+            nextBtn.addEventListener("click", function (e) {
+              e.preventDefault();
+              e.stopPropagation();
+              next();
+              start();
+            });
+          }
+
+          dots.forEach(function (dot, i) {
+            dot.addEventListener("click", function (e) {
+              e.preventDefault();
+              e.stopPropagation();
+              show(i);
+              start();
+            });
+          });
+
+          carousel.addEventListener("mouseenter", function () {
+            paused = true;
+            stop();
+          });
+
+          carousel.addEventListener("mouseleave", function () {
+            paused = false;
+            start();
+          });
+
+          show(index);
+          setTimeout(function () {
+            if (!paused) start();
+          }, START_DELAY);
+        });
+      })();
+    </script>
   </body>
 </html>
