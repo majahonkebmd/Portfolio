@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Task Management Interface | Majah</title>
-    <meta name="description" content="A prototype designed for tracking tasks efficiently with a clean, focused interface." />
+    <title>Piano IQ | Majah</title>
+    <meta name="description" content="Piano IQ: an award-winning undergraduate capstone project featuring pedal-aware AI music transcription, performance analysis, and AI tutor feedback." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -77,6 +77,14 @@
       .project-small-image svg {
         width: 82%;
         height: 82%;
+      }
+
+      .project-small-image img,
+      .project-large-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
       }
 
       .project-small-image span,
@@ -183,47 +191,35 @@
           <!-- Top section: project name + frameworks + small image -->
           <div class="project-top">
             <div class="project-heading">
-              <span class="eyebrow">Project Two</span>
-              <h1>Task Management Interface</h1>
+              <span class="eyebrow">Project Two · Excellent Award, Group D</span>
+              <h1>Piano IQ: Intelligent Piano Learning System</h1>
               <div class="tech-list">
-                <span class="tech-pill">HTML</span><span class="tech-pill">CSS</span><span class="tech-pill">JavaScript</span><span class="tech-pill">Responsive UI</span>
+                <span class="tech-pill">Python</span><span class="tech-pill">PyTorch</span><span class="tech-pill">Sequence-to-Sequence Transformer</span><span class="tech-pill">MIDI</span><span class="tech-pill">AI Tutor</span>
               </div>
             </div>
 
-            <!-- EDIT THIS: replace this placeholder with your small project image -->
-            <div class="project-small-image" role="img" aria-label="Task Management Interface project preview">
-              <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <rect x="70" y="70" width="660" height="360" rx="18" fill="none" stroke="currentColor" stroke-width="5"/>
-          <rect x="110" y="115" width="160" height="230" rx="14" fill="none" stroke="currentColor" stroke-width="5"/>
-          <rect x="310" y="115" width="180" height="90" rx="14" fill="none" stroke="currentColor" stroke-width="5"/>
-          <rect x="530" y="115" width="160" height="230" rx="14" fill="none" stroke="currentColor" stroke-width="5"/>
-          <path d="M340 250 H455 M340 285 H425 M565 235 H655 M565 270 H640 M565 305 H620" stroke="currentColor" stroke-width="9" stroke-linecap="round" opacity=".5"/>
-        </svg>
-              <span>Project Preview</span>
+            <div class="project-small-image" role="img" aria-label="Piano IQ web application front page">
+              <img src="images/PianoIQ_frontpage.png" alt="Piano IQ web application front page showing the upload and transcription entry point" />
+              <!-- <span>App front page</span> -->
             </div>
           </div>
 
           <!-- Project explanation -->
           <div class="project-description">
-            <p>This app concept emphasizes simple task creation, fast filtering, and intuitive status tracking. The interface is designed around usability, quick navigation, and clear presentation of daily tasks.</p>
+            <p>Piano IQ is my undergraduate capstone project, built together with two teammates and awarded the Excellent Award in Group D at the 114-2 undergraduate project exhibition. Automatic Music Transcription (AMT) converts piano audio into a symbolic MIDI sequence, but most existing systems represent sustain pedal use by artificially extending note durations, which obscures true key-release timing and can produce visually misleading MIDI, sometimes showing more simultaneous held keys than a pianist could physically play. Piano IQ addresses this with a pedal-aware sequence-to-sequence Transformer that introduces explicit PedalOn/PedalOff tokens and auxiliary prediction heads for pedal state, onset, and offset, keeping pedal behavior separate from note duration. This feeds a MIDI Analysis Module that aligns a student's performance against a reference recording, and an AI tutor that turns the resulting error analysis into natural-language, measure-specific feedback.
+            Piano IQ is delivered as a fully functional, professionally designed web interface that carries the learner from file upload through transcription, falling-note visualization, and playback to performance comparison and AI tutor feedback, all in one cohesive workflow. The homepage, upload flow, piano learning workspace, and tutor panel were each built with a clean, consistent visual language, turning the underlying transcription and analysis pipeline into an accessible, guided practice environment rather than a collection of disconnected tools.
+            </p>
           </div>
 
           <!-- Bigger project image -->
-          <!-- EDIT THIS: replace this placeholder with your main project image -->
-          <div class="project-large-image" role="img" aria-label="Task Management Interface project preview">
-            <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <rect x="70" y="70" width="660" height="360" rx="18" fill="none" stroke="currentColor" stroke-width="5"/>
-          <rect x="110" y="115" width="160" height="230" rx="14" fill="none" stroke="currentColor" stroke-width="5"/>
-          <rect x="310" y="115" width="180" height="90" rx="14" fill="none" stroke="currentColor" stroke-width="5"/>
-          <rect x="530" y="115" width="160" height="230" rx="14" fill="none" stroke="currentColor" stroke-width="5"/>
-          <path d="M340 250 H455 M340 285 H425 M565 235 H655 M565 270 H640 M565 305 H620" stroke="currentColor" stroke-width="9" stroke-linecap="round" opacity=".5"/>
-        </svg>
-            <span>Project Image — replace placeholder</span>
+          <div class="project-large-image" role="img" aria-label="Piano IQ research poster">
+            <img src="images/PianoIQPoster.png" alt="Piano IQ project poster covering the introduction, methodology, transcription pipeline, user interface, and performance results" />
+            <!-- <span>Project poster</span> -->
           </div>
 
           <!-- Conclusion -->
           <div class="project-conclusion">
-            <p>The project shows how a straightforward interface can make everyday task management easier by keeping the important actions and information clear and accessible.</p>
+            <p>Piano IQ combines pedal-aware transcription, MIDI performance analysis, and AI tutor feedback into one learning platform. Its core contribution is a Transformer that represents sustain pedal activity with PedalOn/PedalOff tokens and auxiliary pedal heads, improving pedal recognition (F1 up from 75.37% to 78.52%) while adding only about 1.5k parameters and barely affecting note transcription accuracy. The MIDI Analysis Module then uses note alignment and structured JSON summarization to generate grounded, measure-specific feedback from the AI tutor.</p>
           </div>
 
           <div class="back-to-portfolio">
