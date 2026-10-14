@@ -3,128 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio | Major</title>
-    <meta
-      name="description"
-      content="Portfolio showcase with dedicated project detail pages."
-    />
+    <title>Portfolio | Majah</title>
+    <meta name="description" content="Portfolio showcase with dedicated project detail pages." />
+    <meta name="theme-color" content="#f7f8fb" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles/tokens.css" />
     <link rel="stylesheet" href="styles/global.css" />
-    <style>
-      .portfolio-showcase {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 28px;
-        align-items: stretch;
-      }
-
-      .showcase-card {
-        padding: 0;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        min-height: 100%;
-        border-radius: 18px;
-      }
-
-      .project-image-link {
-        display: block;
-        text-decoration: none;
-      }
-
-      .project-image-placeholder {
-        position: relative;
-        aspect-ratio: 16 / 10;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        background: #f4f7f8;
-        color: #0f4c81;
-        border-bottom: 1px solid rgba(15, 76, 129, 0.12);
-      }
-
-      .project-image-placeholder svg {
-        width: 78%;
-        height: 78%;
-        transition: transform 0.3s ease;
-      }
-
-      .project-image-placeholder img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-        transition: transform 0.3s ease;
-      }
-
-      .project-image-placeholder span {
-        position: absolute;
-        bottom: 14px;
-        left: 16px;
-        padding: 5px 10px;
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.9);
-        font-size: 0.75rem;
-        font-weight: 600;
-      }
-
-      .project-image-link:hover .project-image-placeholder svg,
-      .project-image-link:hover .project-image-placeholder img {
-        transform: scale(1.03);
-      }
-
-      .showcase-content {
-        padding: 22px 22px 24px;
-      }
-
-      .project-title-link {
-        color: inherit;
-        text-decoration: none;
-      }
-
-      .project-title-link h3 {
-        margin: 9px 0;
-        transition: color 0.2s ease;
-      }
-
-      .project-title-link:hover h3 {
-        color: #0f4c81;
-      }
-
-      .showcase-content p {
-        margin: 0;
-      }
-
-      @media (max-width: 900px) {
-        .portfolio-showcase {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-      }
-
-      @media (max-width: 620px) {
-        .portfolio-showcase {
-          grid-template-columns: 1fr;
-        }
-      }
-    </style>
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="site-header">
       <div class="container header-inner">
-        <a href="index.html" class="brand">Majah</a>
-        <nav class="main-nav">
+        <a class="brand" href="index.html">Majah</a>
+        <nav class="main-nav" id="main-nav" aria-label="Primary navigation">
           <a href="index.html">Home</a>
-          <a href="portfolio.html" class="active">Portfolio</a>
+          <a href="portfolio.html" class="active" aria-current="page">Portfolio</a>
           <a href="about.html">About</a>
           <a href="hobbies.html">Hobbies</a>
           <a href="contact.html">Contact</a>
         </nav>
-        <button class="mobile-toggle" aria-label="Open navigation" aria-expanded="false">
+        <button class="mobile-toggle" type="button" aria-label="Toggle navigation" aria-controls="main-nav" aria-expanded="false">
           <span></span>
           <span></span>
           <span></span>
@@ -132,7 +33,7 @@
       </div>
     </header>
 
-    <main class="page-shell">
+    <main class="page-shell" id="main-content">
       <section class="section">
         <div class="container">
           <div class="section-heading">
@@ -144,14 +45,14 @@
           <div class="projects-grid portfolio-showcase">
 
             <article class="project-card showcase-card">
-              <a class="project-image-link" href="project-one.html" aria-label="Open Major Front-End Portfolio project">
+              <a class="project-image-link" href="project-one.html" aria-label="Open Majah Front-End Portfolio project">
                 <div class="project-image-placeholder">
-                  <img src="images/PortfolioHome.png" alt="Major Front-End Portfolio home page showing introduction and navigation" />
+                  <img src="images/projects/portfolio-home.png" alt="Majah Front-End Portfolio home page showing introduction and navigation" width="567" height="422" />
                 </div>
               </a>
               <div class="showcase-content">
                 <span class="project-tag">Web Design</span>
-                <a class="project-title-link" href="project-one.html"><h3>Major | Front-End Portfolio</h3></a>
+                <a class="project-title-link" href="project-one.html"><h2>Majah | Front-End Portfolio</h2></a>
                 <p>A complete personal portfolio website built with HTML, CSS, and JavaScript to present work professionally with clean, responsive layouts.</p>
               </div>
             </article>
@@ -159,12 +60,12 @@
             <article class="project-card showcase-card">
               <a class="project-image-link" href="project-two.html" aria-label="Open Piano IQ project">
                 <div class="project-image-placeholder">
-                  <img src="images/PianoIQ_frontpage.png" alt="Piano IQ web application front page showing the upload and transcription entry point" />
+                  <img src="images/projects/piano-iq-frontpage.png" alt="Piano IQ web application front page showing the upload and transcription entry point" width="975" height="421" loading="lazy" />
                 </div>
               </a>
               <div class="showcase-content">
                 <span class="project-tag">AI / Capstone</span>
-                <a class="project-title-link" href="project-two.html"><h3>Piano IQ: Intelligent Piano Learning System</h3></a>
+                <a class="project-title-link" href="project-two.html"><h2>Piano IQ: Intelligent Piano Learning System</h2></a>
                 <p>Pedal-aware automatic music transcription, performance analysis, and AI tutor feedback in one cohesive learning platform.</p>
               </div>
             </article>
@@ -172,12 +73,12 @@
             <article class="project-card showcase-card">
               <a class="project-image-link" href="project-three.html" aria-label="Open AutoRecon+ project">
                 <div class="project-image-placeholder">
-                  <img src="images/smallpicAutorecon.png" alt="AutoRecon+ Cybersecurity Automation and Monitoring Platform header and introduction preview" />
+                  <img src="images/projects/autorecon-preview.png" alt="AutoRecon+ Cybersecurity Automation and Monitoring Platform header and introduction preview" width="720" height="322" loading="lazy" />
                 </div>
               </a>
               <div class="showcase-content">
                 <span class="project-tag">Cybersecurity</span>
-                <a class="project-title-link" href="project-three.html"><h3>AutoRecon+</h3></a>
+                <a class="project-title-link" href="project-three.html"><h2>AutoRecon+</h2></a>
                 <p>An educational research prototype that unifies reconnaissance, attack simulation, network monitoring, ML anomaly detection, and reporting.</p>
               </div>
             </article>
@@ -189,10 +90,10 @@
 
     <footer class="site-footer">
       <div class="container footer-inner">
-        <p>© <span id="year"></span> Major. All rights reserved.</p>
+        <p>&copy; <span id="year"></span> Majah. All rights reserved.</p>
       </div>
     </footer>
 
-    <script src="scripts/main.js"></script>
+    <script src="scripts/main.js" defer></script>
   </body>
 </html>

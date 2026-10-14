@@ -1,0 +1,249 @@
+/* Layout */
+.hobbies-intro {
+  padding-block: var(--space-7) var(--space-5);
+}
+
+.hobbies-intro .split-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+}
+
+.hobbies-intro h1 {
+  margin-bottom: var(--space-4);
+  letter-spacing: -0.02em;
+}
+
+.hobbies-intro p,
+.hobbies-intro .panel-card p {
+  margin-bottom: 0;
+}
+
+.hobbies-intro .panel-card h2 {
+  margin-bottom: var(--space-3);
+}
+
+.hobbies-main-section {
+  padding-block: var(--space-5) var(--space-8);
+}
+
+.hobbies-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-5);
+}
+
+.hobby-card {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.hobby-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.hobby-card-head h3 {
+  margin: 0;
+}
+
+.hobby-icon {
+  width: var(--space-6);
+  height: var(--space-6);
+  flex: 0 0 var(--space-6);
+  color: var(--color-accent);
+  object-fit: cover;
+}
+
+.hobby-desc {
+  margin: 0;
+  font-size: var(--font-size-small);
+}
+
+.chess-links-label {
+  margin: 0;
+  color: var(--color-text);
+  font-size: var(--font-size-eyebrow);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.chess-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+
+.chess-tile {
+  display: flex;
+  min-height: var(--touch-target);
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-3);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-soft);
+}
+
+.chess-tile span {
+  color: var(--color-heading);
+  font-weight: 700;
+}
+
+.chess-tile small {
+  color: var(--color-text);
+}
+
+.media-carousel {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: var(--space-2);
+  user-select: none;
+}
+
+.carousel-track {
+  position: relative;
+  min-width: 0;
+  flex: 1;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--color-surface-soft);
+}
+
+.carousel-slide {
+  position: absolute;
+  inset: 0;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--motion-duration) ease;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-btn {
+  position: relative;
+  z-index: 5;
+  display: inline-flex;
+  width: var(--touch-target);
+  height: var(--touch-target);
+  flex: 0 0 var(--touch-target);
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  color: var(--color-heading);
+  cursor: pointer;
+  transition: border-color var(--motion-duration) ease,
+    background-color var(--motion-duration) ease;
+}
+
+.carousel-dots {
+  position: absolute;
+  z-index: 4;
+  bottom: var(--space-2);
+  left: 50%;
+  display: flex;
+  transform: translateX(-50%);
+}
+
+.carousel-dot {
+  position: relative;
+  display: grid;
+  width: var(--touch-target);
+  height: var(--touch-target);
+  place-items: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.carousel-dot::before {
+  width: var(--space-2);
+  height: var(--space-2);
+  border: var(--border-width) solid var(--color-accent);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  content: "";
+  transition: background-color var(--motion-duration) ease,
+    transform var(--motion-duration) ease;
+}
+
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+
+.social-tile {
+  display: flex;
+  min-width: var(--touch-target);
+  min-height: var(--touch-target);
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-soft);
+  transition: border-color var(--motion-duration) ease,
+    background-color var(--motion-duration) ease;
+}
+
+.social-tile img {
+  width: 44%;
+  height: 44%;
+  object-fit: contain;
+}
+
+/* States */
+.carousel-slide.is-active {
+  z-index: 1;
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.carousel-btn:hover,
+.chess-tile:hover,
+.social-tile:hover {
+  border-color: var(--color-accent);
+  background: var(--color-surface-soft);
+}
+
+.carousel-dot:hover::before {
+  transform: scale(1.15);
+}
+
+.carousel-dot.is-active::before {
+  background: var(--color-accent);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hobbies-intro .split-grid,
+  .hobbies-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .chess-links {
+    grid-template-columns: 1fr;
+  }
+
+  .media-carousel {
+    gap: var(--space-1);
+  }
+}

@@ -3,180 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Major | Front-End Portfolio | Majah</title>
+    <title>Front-End Portfolio | Majah</title>
     <meta name="description" content="A complete personal portfolio website built with HTML, CSS, and JavaScript to present work professionally with clean, responsive layouts." />
+    <meta name="theme-color" content="#f7f8fb" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles/tokens.css" />
     <link rel="stylesheet" href="styles/global.css" />
-    <style>
-
-      .project-detail {
-        max-width: 1100px;
-        margin: 0 auto;
-      }
-
-      .project-top {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
-        gap: 52px;
-        align-items: start;
-        margin-bottom: 48px;
-      }
-
-      .project-heading {
-        padding-top: 4px;
-      }
-
-      .project-heading h1 {
-        margin: 8px 0 20px;
-        max-width: 680px;
-      }
-
-      .project-heading .project-lead {
-        max-width: 650px;
-        margin: 0;
-        font-size: 1.02rem;
-        line-height: 1.8;
-      }
-
-      .tech-list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 9px;
-        margin-top: 24px;
-      }
-
-      .tech-pill {
-        display: inline-flex;
-        align-items: center;
-        padding: 7px 13px;
-        border: 1px solid rgba(15, 76, 129, 0.2);
-        border-radius: 999px;
-        background: rgba(15, 76, 129, 0.04);
-        color: #0f4c81;
-        font-size: 0.82rem;
-        font-weight: 600;
-      }
-
-      .project-small-image {
-        width: 100%;
-        aspect-ratio: 16 / 10;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: #f4f7f8;
-        color: #0f4c81;
-        border-radius: 10px;
-      }
-
-      .project-small-image svg {
-        width: 82%;
-        height: 82%;
-      }
-
-      .project-small-image img,
-      .project-large-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-      }
-
-      .project-small-image span,
-      .project-large-image span {
-        position: absolute;
-        font-size: 0.8rem;
-        font-weight: 600;
-        opacity: 0.65;
-      }
-
-      .project-description {
-        max-width: 920px;
-        margin: 0 auto 48px;
-      }
-
-      .project-description p,
-      .project-conclusion p {
-        font-size: 1rem;
-        line-height: 1.9;
-        margin: 0;
-      }
-
-      .project-large-image {
-        position: relative;
-        width: 100%;
-        min-height: 460px;
-        margin: 0 auto 48px;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: #f4f7f8;
-        color: #0f4c81;
-        border-radius: 12px;
-      }
-
-      .project-large-image svg {
-        width: 82%;
-        height: 82%;
-      }
-
-      .project-conclusion {
-        max-width: 920px;
-        margin: 0 auto 36px;
-      }
-
-      .back-to-portfolio {
-        display: flex;
-        justify-content: center;
-        margin-top: 8px;
-      }
-
-      @media (max-width: 800px) {
-        .project-top {
-          grid-template-columns: 1fr;
-          gap: 28px;
-        }
-
-        .project-small-image {
-          max-width: 560px;
-        }
-
-        .project-large-image {
-          min-height: 320px;
-        }
-      }
-
-      @media (max-width: 520px) {
-        .project-large-image {
-          min-height: 240px;
-        }
-
-        .tech-list {
-          gap: 7px;
-        }
-      }
-
-    </style>
+    <link rel="stylesheet" href="styles/pages/project.css" />
   </head>
 
   <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="site-header">
       <div class="container header-inner">
-        <a href="index.html" class="brand">Majah</a>
-        <nav class="main-nav">
+        <a class="brand" href="index.html">Majah</a>
+        <nav class="main-nav" id="main-nav" aria-label="Primary navigation">
           <a href="index.html">Home</a>
-          <a href="portfolio.html" class="active">Portfolio</a>
+          <a href="portfolio.html" class="active" aria-current="page">Portfolio</a>
           <a href="about.html">About</a>
           <a href="hobbies.html">Hobbies</a>
           <a href="contact.html">Contact</a>
         </nav>
-        <button class="mobile-toggle" aria-label="Open navigation" aria-expanded="false">
+        <button class="mobile-toggle" type="button" aria-label="Toggle navigation" aria-controls="main-nav" aria-expanded="false">
           <span></span>
           <span></span>
           <span></span>
@@ -184,7 +35,7 @@
       </div>
     </header>
 
-    <main class="page-shell">
+    <main class="page-shell" id="main-content">
       <section class="section">
         <div class="container project-detail">
 
@@ -192,14 +43,14 @@
           <div class="project-top">
             <div class="project-heading">
               <span class="eyebrow">Project One · Personal Project</span>
-              <h1>Major | Front-End Portfolio</h1>
+              <h1>Majah | Front-End Portfolio</h1>
               <div class="tech-list">
                 <span class="tech-pill">HTML</span><span class="tech-pill">CSS3</span><span class="tech-pill">JavaScript</span><span class="tech-pill">Responsive Design</span><span class="tech-pill">Semantic HTML</span><span class="tech-pill">Modular CSS</span>
               </div>
             </div>
 
-            <div class="project-small-image" role="img" aria-label="Portfolio website home page">
-              <img src="images/PortfolioHome.png" alt="Major Front-End Portfolio home page showing introduction and navigation" />
+            <div class="project-small-image">
+              <img src="images/projects/portfolio-home.png" alt="Majah Front-End Portfolio home page showing introduction and navigation" width="567" height="422" />
             </div>
           </div>
 
@@ -209,8 +60,8 @@
           </div>
 
           <!-- Bigger project image -->
-          <div class="project-large-image" role="img" aria-label="Major Front-End Portfolio project poster">
-            <img src="images/portfolioPoster.png" alt="Major Front-End Portfolio poster covering introduction, site structure, core stack, and key practices" />
+          <div class="project-large-image">
+            <img src="images/projects/portfolio-poster.png" alt="Majah Front-End Portfolio poster covering introduction, site structure, core stack, and key practices" width="1098" height="1098" loading="lazy" />
           </div>
 
           <!-- Conclusion -->
@@ -228,10 +79,10 @@
 
     <footer class="site-footer">
       <div class="container footer-inner">
-        <p>© <span id="year"></span> Major. All rights reserved.</p>
+        <p>&copy; <span id="year"></span> Majah. All rights reserved.</p>
       </div>
     </footer>
 
-    <script src="scripts/main.js"></script>
+    <script src="scripts/main.js" defer></script>
   </body>
 </html>

@@ -3,263 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About | Major Portfolio</title>
-    <meta
-      name="description"
-      content="Learn more about Major, skills, education, background, and professional goals."
-    />
-
+    <title>About | Majah</title>
+    <meta name="description" content="Learn more about Majah, skills, education, background, and professional goals." />
+    <meta name="theme-color" content="#f7f8fb" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles/tokens.css" />
     <link rel="stylesheet" href="styles/global.css" />
-
-    <style>
-      /* =========================================================
-         ABOUT PAGE
-         Skills + Education
-         ========================================================= */
-
-      .about-section {
-        padding-top: 48px;
-      }
-
-      .skills-section,
-      .education-section {
-        padding: 56px 0 72px;
-      }
-
-      .section-heading {
-        margin-bottom: 34px;
-      }
-
-      .section-heading h2 {
-        margin: 0 0 10px;
-        color: #0b4ea2;
-        font-size: clamp(2rem, 4vw, 2.7rem);
-      }
-
-      .section-heading p {
-        max-width: 720px;
-        margin: 0;
-        color: #5f6875;
-      }
-
-      /* -------------------------
-         SKILLS
-         ------------------------- */
-
-      .skills-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 24px;
-        align-items: stretch;
-      }
-
-      .skill-card {
-        min-height: 190px;
-        padding: 22px 20px 20px;
-        border: 1px solid #b8dbe8;
-        border-radius: 12px;
-        background: #fff;
-        box-shadow: 0 5px 16px rgba(30, 70, 100, 0.08);
-        text-align: center;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-      }
-
-      .skill-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 10px 24px rgba(30, 70, 100, 0.13);
-      }
-
-      .skill-card h3 {
-        margin: 0 0 16px;
-        color: #0751a4;
-        font-size: 1rem;
-        font-weight: 600;
-      }
-
-      .skill-icons {
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        flex-wrap: wrap;
-        gap: 18px 22px;
-      }
-
-      .skill-item {
-        min-width: 70px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 7px;
-      }
-
-      .skill-icon {
-        width: 52px;
-        height: 52px;
-        display: block;
-        object-fit: contain;
-      }
-
-      .skill-name {
-        font-size: 0.88rem;
-        color: #222;
-        line-height: 1.2;
-      }
-
-      /* -------------------------
-         EDUCATION
-         ------------------------- */
-
-      .education-grid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 24px;
-      }
-
-      .education-card {
-        position: relative;
-        min-height: 220px;
-        padding: 26px;
-        border-radius: 10px;
-        border: 1px solid #e0e3e6;
-        background: #f8f9fa;
-        box-shadow: 0 5px 16px rgba(30, 40, 50, 0.08);
-        overflow: hidden;
-      }
-
-      .education-card::before {
-        content: "";
-        position: absolute;
-        inset: 0 auto 0 0;
-        width: 4px;
-        background: #0b4ea2;
-      }
-
-      .education-top {
-        display: flex;
-        gap: 18px;
-        align-items: flex-start;
-      }
-
-      .education-logo {
-        width: 76px;
-        height: 76px;
-        flex: 0 0 76px;
-        display: grid;
-        place-items: center;
-        border-radius: 9px;
-        border: 1px solid #d8dde2;
-        background: #fff;
-        overflow: hidden;
-      }
-
-      .education-logo svg {
-        width: 58px;
-        height: 58px;
-      }
-
-      .education-date {
-        margin: 0 0 5px;
-        color: #173e78;
-        font-size: 1.05rem;
-        font-weight: 700;
-      }
-
-      .education-card h3 {
-        margin: 0 0 7px;
-        color: #0751a4;
-        font-size: 1.12rem;
-      }
-
-      .education-degree {
-        margin: 0;
-        color: #222;
-        line-height: 1.45;
-      }
-
-      .education-details {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 16px;
-        margin-top: 22px;
-        padding-top: 17px;
-        border-top: 1px solid #dfe3e7;
-      }
-
-      .education-detail strong {
-        display: block;
-        margin-bottom: 5px;
-        color: #0751a4;
-        font-size: 0.82rem;
-      }
-
-      .education-detail p {
-        margin: 0;
-        color: #59636f;
-        font-size: 0.88rem;
-        line-height: 1.45;
-      }
-
-      /* -------------------------
-         RESPONSIVE
-         ------------------------- */
-
-      @media (max-width: 1050px) {
-        .skills-grid {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-      }
-
-      @media (max-width: 760px) {
-        .skills-grid,
-        .education-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .education-card {
-          min-height: auto;
-        }
-      }
-
-      @media (max-width: 520px) {
-        .education-top {
-          flex-direction: column;
-        }
-
-        .education-details {
-          grid-template-columns: 1fr;
-        }
-
-        .skill-card {
-          min-height: auto;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="styles/pages/about.css" />
   </head>
 
-  <body>
+  <body class="about-page">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="site-header">
       <div class="container header-inner">
-        <a href="index.html" class="brand">Majah</a>
-
-        <nav class="main-nav">
+        <a class="brand" href="index.html">Majah</a>
+        <nav class="main-nav" id="main-nav" aria-label="Primary navigation">
           <a href="index.html">Home</a>
           <a href="portfolio.html">Portfolio</a>
-          <a href="about.html" class="active">About</a>
+          <a href="about.html" class="active" aria-current="page">About</a>
           <a href="hobbies.html">Hobbies</a>
           <a href="contact.html">Contact</a>
         </nav>
-
-        <button
-          class="mobile-toggle"
-          aria-label="Open navigation"
-          aria-expanded="false"
-        >
+        <button class="mobile-toggle" type="button" aria-label="Toggle navigation" aria-controls="main-nav" aria-expanded="false">
           <span></span>
           <span></span>
           <span></span>
@@ -267,14 +35,14 @@
       </div>
     </header>
 
-    <main class="page-shell">
+    <main class="page-shell" id="main-content">
 
       <!-- =======================================================
            ABOUT INTRO
            ======================================================= -->
-      <section class="section intro-section about-section">
-        <div class="container split-grid">
-          <div>
+      <section class="section intro-section about-section about-hero">
+        <div class="container split-grid about-hero-grid">
+          <div class="about-hero-content">
             <span class="eyebrow">About me</span>
 
             <h1>
@@ -286,30 +54,17 @@
 
             </p>
 
-            <div class="callouts">
-              <!-- <div class="callout-card">
-                <strong>Skills</strong>
-                <p>
-                  Programming • Cybersecurity • Networking • AI/ML • Web
-                  Development
-                </p>
-              </div> -->
-
-              <!-- <div class="callout-card">
-                <strong>Focus</strong>
-                <p>
-                  
-                  Add your current professional or academic focus here.
-                </p>
-              </div> -->
+            <div class="about-hero-actions" role="group" aria-label="About page quick links">
+              <a class="button button-primary" href="#skills">View Skills</a>
+              <a class="button button-secondary" href="#education">Education Journey</a>
             </div>
           </div>
 
-          <div class="panel-card">
-            <h2>Background</h2>
+          <div class="panel-card about-background-card">
+            <h2 class="about-card-title">Background</h2>
 
             <p>
-             I am a Computer Science and Information Engineering student at National Dong Hwa University (NDHU), with a strong interest in software engineering, artificial intelligence, machine learning, computer networks, and data-driven technologies. My academic work has exposed me to areas including programming, networking, machine learning, AI, data structures, and distributed computing, which I continue to explore through practical projects. 
+             I am a Computer Science and Information Engineering student at National Dong Hwa University (NDHU), with a strong interest in software engineering, artificial intelligence, machine learning, computer networks, and data-driven technologies. My academic work has exposed me to areas including programming, networking, machine learning, AI, data structures, and distributed computing, which I continue to explore through practical projects.
             </p>
 
           </div>
@@ -319,9 +74,9 @@
       <!-- =======================================================
            SKILLS
            ======================================================= -->
-      <section class="section skills-section" id="skills">
+      <section class="section skills-section about-block" id="skills">
         <div class="container">
-          <div class="section-heading">
+          <div class="section-heading about-heading">
             <span class="eyebrow">Technical abilities</span>
             <h2>Skills</h2>
             <p>
@@ -339,17 +94,17 @@
 
               <div class="skill-icons">
                 <div class="skill-item">
-                  <img class="skill-icon" src="images/SVGs/c-c++.webp" alt="C / C++" />
+                  <img class="skill-icon" src="images/icons/c-c-plus-plus.webp" alt="" width="1088" height="1441" />
                   <span class="skill-name">C / C++</span>
                 </div>
 
                 <div class="skill-item">
-                  <img class="skill-icon" src="images/SVGs/python.webp" alt="Python" />
+                  <img class="skill-icon" src="images/icons/python.webp" alt="" width="3648" height="3840" loading="lazy" />
                   <span class="skill-name">Python</span>
                 </div>
 
                 <div class="skill-item">
-                  <img class="skill-icon" src="images/SVGs/oop.svg" alt="OOP" />
+                  <img class="skill-icon" src="images/icons/oop.svg" alt="" width="512" height="512" loading="lazy" />
                   <span class="skill-name">OOP</span>
                 </div>
               </div>
@@ -361,22 +116,22 @@
 
               <div class="skill-icons">
                 <div class="skill-item">
-                  <img class="skill-icon" src="images/SVGs/html.png" alt="HTML" />
+                  <img class="skill-icon" src="images/icons/html.png" alt="" width="225" height="225" loading="lazy" />
                   <span class="skill-name">HTML</span>
                 </div>
 
                 <div class="skill-item">
-                  <img class="skill-icon" src="images/SVGs/css.png" alt="CSS" />
+                  <img class="skill-icon" src="images/icons/css.png" alt="" width="447" height="447" loading="lazy" />
                   <span class="skill-name">CSS</span>
                 </div>
 
                 <div class="skill-item">
-                  <img class="skill-icon" src="images/SVGs/javascript.png" alt="JavaScript" />
+                  <img class="skill-icon" src="images/icons/javascript.png" alt="" width="1280" height="720" loading="lazy" />
                   <span class="skill-name">JavaScript</span>
                 </div>
 
                 <div class="skill-item">
-                  <img class="skill-icon" src="images/SVGs/fastAPI.png" alt="FastAPI" />
+                  <img class="skill-icon" src="images/icons/fast-api.png" alt="" width="714" height="491" loading="lazy" />
                   <span class="skill-name">FastAPI</span>
                 </div>
               </div>
@@ -388,17 +143,17 @@
 
               <div class="skill-icons">
                 <div class="skill-item">
-                  <img class="skill-icon" src="images/SVGs/machinelearning.jpeg" alt="Machine Learning" />
+                  <img class="skill-icon" src="images/icons/machine-learning.jpeg" alt="" width="1600" height="1066" loading="lazy" />
                   <span class="skill-name">ML</span>
                 </div>
 
                 <div class="skill-item">
-                  <img class="skill-icon" src="images/SVGs/transformer.webp" alt="Transformers" />
+                  <img class="skill-icon" src="images/icons/transformer.webp" alt="" width="1320" height="1860" loading="lazy" />
                   <span class="skill-name">Transformers</span>
                 </div>
 
                 <div class="skill-item">
-                  <img class="skill-icon" src="images/SVGs/scikitlearn.png" alt="scikit-learn" />
+                  <img class="skill-icon" src="images/icons/scikit-learn.png" alt="" width="447" height="447" loading="lazy" />
                   <span class="skill-name">scikit-learn</span>
                 </div>
               </div>
@@ -410,17 +165,17 @@
 
               <div class="skill-icons">
                 <div class="skill-item">
-                  <img class="skill-icon" src="images/SVGs/tcpip.jpg" alt="TCP/IP" />
+                  <img class="skill-icon" src="images/icons/tcp-ip.jpg" alt="" width="980" height="980" loading="lazy" />
                   <span class="skill-name">TCP/IP</span>
                 </div>
 
                 <div class="skill-item">
-                  <img class="skill-icon" src="images/SVGs/dnsdhcp.jpg" alt="DNS / DHCP" />
+                  <img class="skill-icon" src="images/icons/dns-dhcp.jpg" alt="" width="612" height="612" loading="lazy" />
                   <span class="skill-name">DNS / DHCP</span>
                 </div>
 
                 <div class="skill-item">
-                  <img class="skill-icon" src="images/SVGs/http.png" alt="HTTP" />
+                  <img class="skill-icon" src="images/icons/http.png" alt="" width="566" height="541" loading="lazy" />
                   <span class="skill-name">HTTP</span>
                 </div>
               </div>
@@ -432,22 +187,22 @@
 
               <div class="skill-icons">
                 <div class="skill-item">
-                  <img class="skill-icon" src="images/SVGs/numpy.png" alt="NumPy" />
+                  <img class="skill-icon" src="images/icons/numpy.png" alt="" width="552" height="310" loading="lazy" />
                   <span class="skill-name">NumPy</span>
                 </div>
 
                 <div class="skill-item">
-                  <img class="skill-icon" src="images/SVGs/hadoop.jpg" alt="Hadoop" />
+                  <img class="skill-icon" src="images/icons/hadoop.jpg" alt="" width="1400" height="701" loading="lazy" />
                   <span class="skill-name">Hadoop</span>
                 </div>
 
                 <div class="skill-item">
-                  <img class="skill-icon" src="images/SVGs/spark.png" alt="Spark" />
+                  <img class="skill-icon" src="images/icons/spark.png" alt="" width="447" height="447" loading="lazy" />
                   <span class="skill-name">Spark</span>
                 </div>
 
                 <div class="skill-item">
-                  <img class="skill-icon" src="images/SVGs/mongoDB.png" alt="MongoDB" />
+                  <img class="skill-icon" src="images/icons/mongo-db.png" alt="" width="417" height="417" loading="lazy" />
                   <span class="skill-name">MongoDB</span>
                 </div>
               </div>
@@ -459,17 +214,17 @@
 
               <div class="skill-icons">
                 <div class="skill-item">
-                  <img class="skill-icon" src="images/SVGs/restapi.jpg" alt="REST APIs" />
+                  <img class="skill-icon" src="images/icons/rest-api.jpg" alt="" width="545" height="563" loading="lazy" />
                   <span class="skill-name">REST APIs</span>
                 </div>
 
                 <div class="skill-item">
-                  <img class="skill-icon" src="images/SVGs/testingSoftware.png" alt="Testing" />
+                  <img class="skill-icon" src="images/icons/testing-software.png" alt="" width="860" height="475" loading="lazy" />
                   <span class="skill-name">Testing</span>
                 </div>
 
                 <div class="skill-item">
-                  <img class="skill-icon" src="images/SVGs/debugging.jpg" alt="Debugging" />
+                  <img class="skill-icon" src="images/icons/debugging.jpg" alt="" width="1000" height="800" loading="lazy" />
                   <span class="skill-name">Debugging</span>
                 </div>
               </div>
@@ -481,22 +236,22 @@
 
               <div class="skill-icons">
                 <div class="skill-item">
-                  <img class="skill-icon" src="images/SVGs/git.png" alt="Git" />
+                  <img class="skill-icon" src="images/icons/git.png" alt="" width="280" height="280" loading="lazy" />
                   <span class="skill-name">Git</span>
                 </div>
 
                 <div class="skill-item">
-                  <img class="skill-icon" src="images/SVGs/github.png" alt="GitHub" />
+                  <img class="skill-icon" src="images/icons/github.png" alt="" width="3840" height="2160" loading="lazy" />
                   <span class="skill-name">GitHub</span>
                 </div>
 
                 <div class="skill-item">
-                  <img class="skill-icon" src="images/SVGs/vscode.png" alt="VS Code" />
+                  <img class="skill-icon" src="images/icons/vs-code.png" alt="" width="1080" height="1080" loading="lazy" />
                   <span class="skill-name">VS Code</span>
                 </div>
 
                 <div class="skill-item">
-                  <img class="skill-icon" src="images/SVGs/docker.webp" alt="Docker" />
+                  <img class="skill-icon" src="images/icons/docker.webp" alt="" width="625" height="625" loading="lazy" />
                   <span class="skill-name">Docker</span>
                 </div>
               </div>
@@ -508,12 +263,12 @@
 
               <div class="skill-icons">
                 <div class="skill-item">
-                  <img class="skill-icon" src="images/SVGs/research.avif" alt="Research" />
+                  <img class="skill-icon" src="images/icons/research.avif" alt="" width="1000" height="1080" loading="lazy" />
                   <span class="skill-name">Research</span>
                 </div>
 
                 <div class="skill-item">
-                  <img class="skill-icon" src="images/SVGs/algorithms.png" alt="Algorithms" />
+                  <img class="skill-icon" src="images/icons/algorithms.png" alt="" width="608" height="328" loading="lazy" />
                   <span class="skill-name">Algorithms</span>
                 </div>
               </div>
@@ -526,9 +281,9 @@
       <!-- =======================================================
            EDUCATION
            ======================================================= -->
-      <section class="section education-section" id="education">
+      <section class="section education-section about-block" id="education">
         <div class="container">
-          <div class="section-heading">
+          <div class="section-heading about-heading">
             <span class="eyebrow">Academic journey</span>
             <h2>Education</h2>
             <p>
@@ -543,7 +298,7 @@
             <article class="education-card">
               <div class="education-top">
                 <div class="education-logo">
-                  <img src="images/SVGs/ndhu.png" alt="NDHU logo" style="width:100%;height:100%;object-fit:contain;" />
+                  <img src="images/icons/ndhu.png" alt="NDHU logo" width="930" height="930" loading="lazy" />
                 </div>
 
                 <div>
@@ -560,7 +315,7 @@
                   <strong>Focus</strong>
                   <p>
 
-                    Computer Science, Information Engineering, 
+                    Computer Science, Information Engineering,
                     AI/ML, networking, and software development.
                   </p>
                 </div>
@@ -578,7 +333,7 @@
             <article class="education-card">
               <div class="education-top">
                 <div class="education-logo">
-                  <img src="images/SVGs/UNESWA.jpg" alt="UNESWA logo" style="width:100%;height:100%;object-fit:contain;" />
+                  <img src="images/icons/uneswa.jpg" alt="UNESWA logo" width="501" height="399" loading="lazy" />
                 </div>
 
                 <div>
@@ -594,7 +349,7 @@
                 <div class="education-detail">
                   <strong>Focus</strong>
                   <p>
-                    I was here for a semester, I focused on Introduction to Programming in python and Introduction to Computer Science Education, which included topics such as programming. I also had the previlage to learn about classroom management and Child development Psychology 
+                    I was here for a semester, I focused on Introduction to Programming in python and Introduction to Computer Science Education, which included topics such as programming. I also had the privilege to learn about classroom management and Child development Psychology
                     in some of the courses in this program.
                   </p>
                 </div>
@@ -602,7 +357,7 @@
                 <div class="education-detail">
                   <strong>Background</strong>
                   <p>
-                    I got a schoolarship from government for this program
+                    I got a scholarship from government for this program
                     Made a lot of friends here and had fun going around local places and the university.
                   </p>
                 </div>
@@ -613,7 +368,7 @@
             <article class="education-card">
               <div class="education-top">
                 <div class="education-logo">
-                  <img src="images/SVGs/timphisini.jpg" alt="Timphisini logo" style="width:100%;height:100%;object-fit:contain;" />
+                  <img src="images/icons/timphisini.jpg" alt="Timphisini logo" width="378" height="412" loading="lazy" />
                 </div>
 
                 <div>
@@ -629,8 +384,8 @@
                 <div class="education-detail">
                   <strong>Focus</strong>
                   <p>
-                    
-                    Focused on Science, Mathematics and Information Technology subjects, 
+
+                    Focused on Science, Mathematics and Information Technology subjects,
                     which included ICT, Physical Science( Chemistry and Physics), Biology Add Maths
                   </p>
                 </div>
@@ -638,9 +393,9 @@
                 <div class="education-detail">
                   <strong>Background</strong>
                   <p>
-                    Achieved a strong academic record, and actively participated in extracurricular activities 
+                    Achieved a strong academic record, and actively participated in extracurricular activities
                     including  Karate, Chess, Debates and other activities.
-                    I also had the privilage of being the school's Deputy Head Boy and Head Boy for the 2020 and 2021 academic year
+                    I also had the privilege of being the school's Deputy Head Boy and Head Boy for the 2020 and 2021 academic year
                   </p>
                 </div>
               </div>
@@ -650,7 +405,7 @@
             <article class="education-card">
               <div class="education-top">
                 <div class="education-logo">
-                  <img src="images/SVGs/Ndlalambi.jpg" alt="Ndlalambi logo" style="width:100%;height:100%;object-fit:contain;" />
+                  <img src="images/icons/ndlalambi.jpg" alt="Ndlalambi logo" width="993" height="603" loading="lazy" />
                 </div>
 
                 <div>
@@ -687,10 +442,10 @@
 
     <footer class="site-footer">
       <div class="container footer-inner">
-        <p>© <span id="year"></span> Major. All rights reserved.</p>
+        <p>&copy; <span id="year"></span> Majah. All rights reserved.</p>
       </div>
     </footer>
 
-    <script src="scripts/main.js"></script>
+    <script src="scripts/main.js" defer></script>
   </body>
 </html>
