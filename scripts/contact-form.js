@@ -17,7 +17,7 @@
     const email = emailField.value.trim();
     const message = messageField.value.trim();
     const subject = encodeURIComponent(`Portfolio message from ${name || 'a visitor'}`);
-    const body = encodeURIComponent(`${message}\n\n${name}\n${email}`);
+    const body = encodeURIComponent(`${message}\n\nFrom: ${name}\nEmail: ${email}`);
 
     window.location.href = `mailto:${destination}?subject=${subject}&body=${body}`;
   });

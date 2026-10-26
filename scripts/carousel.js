@@ -1,7 +1,7 @@
 (() => {
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-  document.querySelectorAll('[data-carousel]').forEach((carousel, carouselIndex) => {
+  document.querySelectorAll('[data-carousel]').forEach((carousel) => {
     const slides = Array.from(carousel.querySelectorAll('.carousel-slide'));
     if (slides.length === 0) return;
 
@@ -11,10 +11,7 @@
     const activeSlide = slides.findIndex((slide) => slide.classList.contains('is-active'));
     let index = activeSlide < 0 ? 0 : activeSlide;
     let timer = null;
-    let initialTimer = null;
-    let isHovered = false;
-    let hasFocus = false;
-    const startDelay = (carouselIndex * 1300) % 5000;
+    let paused = false;
 
     const stop = () => {
       if (timer !== null) {
@@ -40,28 +37,10 @@
     };
 
     const start = () => {
-      if (initialTimer !== null) {
-        window.clearTimeout(initialTimer);
-        initialTimer = null;
-      }
       stop();
-      if (slides.length < 2 || isHovered || hasFocus || reducedMotion.matches) return;
+      if (slides.length < 2 || paused || reducedMotion.matches) return;
       timer = window.setInterval(() => show(index + 1), 5000);
     };
-
-    if (typeof reducedMotion.addEventListener === 'function') {
-      reducedMotion.addEventListener('change', () => {
-        if (reducedMotion.matches) {
-          if (initialTimer !== null) {
-            window.clearTimeout(initialTimer);
-            initialTimer = null;
-          }
-          stop();
-        } else {
-          start();
-        }
-      });
-    }
 
     if (previousButton) {
       previousButton.addEventListener('click', () => {
@@ -85,30 +64,28 @@
     });
 
     carousel.addEventListener('mouseenter', () => {
-      isHovered = true;
+      paused = true;
       stop();
     });
 
     carousel.addEventListener('mouseleave', () => {
-      isHovered = false;
+      paused = false;
       start();
     });
 
     carousel.addEventListener('focusin', () => {
-      hasFocus = true;
+      paused = true;
       stop();
     });
 
     carousel.addEventListener('focusout', (event) => {
       if (!event.relatedTarget || !carousel.contains(event.relatedTarget)) {
-        hasFocus = false;
+        paused = false;
         start();
       }
     });
 
     show(index);
-    if (!reducedMotion.matches) {
-      initialTimer = window.setTimeout(start, startDelay);
-    }
+    start();
   });
 })();

@@ -25,12 +25,7 @@ Personal portfolio website for **Majahonke Dlamini**, a Computer Science and Inf
 ├── styles/
 │   ├── tokens.css              # Colors, spacing, type, radii, and shadows
 │   ├── global.css              # Reset, shared layout, and components
-│   └── pages/
-│       ├── about.css
-│       ├── contact.css
-│       ├── hobbies.css
-│       ├── index.css
-│       └── project.css         # Shared by all three project pages
+│   └── pages/                  # Page and shared project styles
 ├── scripts/
 │   ├── main.js                 # Navigation and footer year
 │   ├── carousel.js             # Hobbies image carousels
@@ -41,9 +36,8 @@ Personal portfolio website for **Majahonke Dlamini**, a Computer Science and Inf
 │   ├── icons/
 │   ├── profile/
 │   └── projects/
-├── .gitattributes
-├── .editorconfig
 ├── favicon.svg
+├── .editorconfig
 └── .nojekyll
 ```
 
@@ -52,7 +46,7 @@ Personal portfolio website for **Majahonke Dlamini**, a Computer Science and Inf
 Open `index.html` directly, or use VS Code Live Server. A local Python server also works without installing dependencies:
 
 ```powershell
-python -m http.server 8000
+py -m http.server 8000
 ```
 
 Then visit [http://localhost:8000](http://localhost:8000).

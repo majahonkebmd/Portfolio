@@ -273,7 +273,8 @@ p {
   font-size: var(--font-size-small);
 }
 
-.eyebrow {
+.eyebrow,
+.section-label {
   display: inline-flex;
   margin-bottom: var(--space-3);
   color: var(--color-text);
@@ -311,6 +312,7 @@ p {
   color: var(--color-accent);
 }
 
+.card,
 .project-card,
 .panel-card,
 .skill-card,
@@ -323,6 +325,7 @@ p {
   box-shadow: var(--shadow-card);
 }
 
+.card,
 .project-card,
 .panel-card,
 .skill-card,

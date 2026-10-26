@@ -21,6 +21,12 @@
   margin: var(--space-2) 0 var(--space-4);
 }
 
+.project-lead {
+  max-width: 40.625rem;
+  margin: 0;
+  line-height: 1.8;
+}
+
 .project-small-image,
 .project-large-image {
   position: relative;

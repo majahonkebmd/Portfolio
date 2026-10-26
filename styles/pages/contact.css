@@ -40,23 +40,14 @@
 
 .social-list {
   display: grid;
-  width: 100%;
-  min-width: 0;
-  grid-template-columns: minmax(0, 1fr);
   gap: var(--space-3);
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.social-list li {
-  min-width: 0;
-}
-
 .social-link {
   display: flex;
-  width: 100%;
-  min-width: 0;
   min-height: var(--touch-target);
   align-items: center;
   gap: var(--space-4);
@@ -64,8 +55,6 @@
   border: var(--border-width) solid var(--color-border);
   border-radius: var(--radius-md);
   background: var(--color-surface);
-  transition: border-color var(--motion-duration) ease,
-    background-color var(--motion-duration) ease;
 }
 
 .social-text {
@@ -73,7 +62,6 @@
   min-width: 0;
   flex: 1;
   flex-direction: column;
-  overflow: hidden;
   line-height: 1.35;
 }
 
@@ -93,8 +81,6 @@
   height: var(--space-5);
   flex: 0 0 var(--space-5);
   color: var(--color-muted);
-  transition: color var(--motion-duration) ease,
-    transform var(--motion-duration) ease;
 }
 
 .card-divider {
